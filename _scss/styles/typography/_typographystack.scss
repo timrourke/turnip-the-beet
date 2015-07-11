@@ -1,0 +1,13 @@
+//Brandon Grotesque
+//Weights: 300, 500, 900
+//NO ITALICS!
+$sans-serif: "brandon-grotesque", sans-serif;
+
+//Calluna
+//Weights: 300, 400, 400 italic, 700, 700 italic
+//NO ITALICS IN HEADLINES!
+$serif: "calluna", serf;
+
+html {
+	font-family:$serif;
+}

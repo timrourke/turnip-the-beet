@@ -1,0 +1,71 @@
+.home .site-header {
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  padding:2em;
+  height:100%;
+  @media all and (min-width: 600px) {
+    padding-bottom:50%;
+    background-position: center 35%;
+  }
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-320.jpg');
+  @media all and (min-width: 320px) {
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-480.jpg');
+  }
+  @media all and (min-width: 480px) {
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-640.jpg');
+  }
+  @media all and (min-width: 640px) {
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-800.jpg');
+  }
+  @media all and (min-width: 800px) {
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-1024.jpg');
+  }
+  @media all and (min-width: 1024px) {
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-1280.jpg');
+  }
+  @media all and (min-width: 1280px) {
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-1600.jpg');
+  }
+  @media all and (min-width: 1600px) {
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-1890.jpg');
+  }
+  @media all and (min-width: 1890px) {
+    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-2400.jpg');
+  }
+}
+
+.home section {
+  position:absolute;
+  left:0;
+  background-image:linear-gradient(to bottom, #eee, #ddd);
+  width:100%;
+  padding:2em;;
+  height:100%;
+}
+
+.home .about-promo {
+  top:100%;
+}
+
+.home .food-promo {
+  top:200%;
+}
+
+.home .blog-promo {
+  top:300%;
+}
+
+.home .photos-promo {
+  top:400%;
+}
+
+.home .site-footer {
+  position: absolute;
+  width:100%;
+  padding:2em;
+  top:500%;
+}

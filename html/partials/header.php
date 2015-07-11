@@ -30,7 +30,7 @@
 
         <link rel="stylesheet" href="css/style.css">
     </head>
-    <body>
+    <body class="<?php echo $bodyClass; ?>">
         <!--[if lt IE 8]>
             <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
@@ -39,21 +39,24 @@
 
         	<header id="masthead" class="site-header" role="banner">
         		<div class="site-branding">
-        			<h1 class="site-title"><a href="/" rel="home">Turnip the Beet</a></h1>
-        			<p class="site-description">We grow organic vegetables with love and a cattle dog in the foothills of Lorane, Oregon.</p>
+        			<h1 class="site-title">
+                <a href="/" rel="home">
+                  <span class="screen-reader-text">Turnip the Beet</span>
+                  <img src="images-build/new-logo-prototype-480.png" sizes="20vw" srcset="images-build/new-logo-prototype.png 1200w, images-build/new-logo-prototype-1024.png 1024w, images-build/new-logo-prototype-800.png 800w, images-build/new-logo-prototype-640.png 640w, images-build/new-logo-prototype-480.png 480w, images-build/new-logo-prototype-320.png 320w" alt="Turnip the Beets Farm" class="site-logo">
+                </a>
+              </h1>
         		</div><!-- .site-branding -->
 
-        		<nav id="site-navigation" class="main-navigation" role="navigation">
+        		<nav id="main-navigation" class="site-navigation site-navigation--main" role="navigation">
         			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
         			<ul id="primary-menu" class="site-navigation__menu">
         			  <li class="site-navigation__menu-item"><a href="about/" class="site-navigation__menu-link">About Us</a></li>
         			  <li class="site-navigation__menu-item"><a href="field-notes/" class="site-navigation__menu-link">Field Notes</a></li>
         			  <li class="site-navigation__menu-item"><a href="our-customers/" class="site-navigation__menu-link">Our Customers</a></li>
         			  <li class="site-navigation__menu-item"><a href="our-food/" class="site-navigation__menu-link">Our Food</a></li>
-        			  <li class="site-navigation__menu-item"><a href="photos/" class="site-navigation__menu-link">Photos</a></li>
-        			  <li class="site-navigation__menu-item"><a href="contact/" class="site-navigation__menu-link">Contact</a></li>
         			</ul>
         		</nav><!-- #site-navigation -->
+
         	</header><!-- #masthead -->
 
         	<div id="content" class="site-content">

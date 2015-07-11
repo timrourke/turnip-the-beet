@@ -1,0 +1,19 @@
+.site-header {
+  @extend .clearfix;
+}
+
+.site-title {
+  margin:0;
+}
+
+.site-logo {
+  display:block;
+  float:left;
+  width:6em;
+  margin-top:-0.175em;
+  height:auto;
+}
+
+.site-navigation--main {
+  float:right;
+}

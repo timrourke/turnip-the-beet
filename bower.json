@@ -1,0 +1,22 @@
+{
+  "name": "turnipthebeet",
+  "version": "0.0.1",
+  "homepage": "https://github.com/timrourke/turnip-the-beet",
+  "authors": [
+    "Tim Rourke <tim@timrourke.com>"
+  ],
+  "description": "Custom WordPress theme for Turnip the Beet Farm",
+  "main": "html/index.php",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "picturefill": "~2.3.1",
+    "jquery": "~2.1.4"
+  }
+}

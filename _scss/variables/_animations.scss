@@ -1,0 +1,17 @@
+@mixin extend-animation($animationName, $timing, $delay, $easing, $startOpacity, $fill-mode) {
+  animation: $animationName $timing;
+  animation-delay: $delay;
+  animation-timing-function: $easing;
+  animation-fill-mode: $fill-mode;
+  opacity:$startOpacity;
+}
+
+@keyframes smoothFadeInUp {
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes smoothFadeInUpCenterCenter {
+  0% { transform: translateX(-50%) translateY(100px) ; opacity: 0; }
+  100% { transform: translateX(-50%) translateY(-50%); opacity: 1; }
+}

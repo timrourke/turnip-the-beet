@@ -20,6 +20,7 @@ var plumber =         require('gulp-plumber');
 // libsass
 gulp.task('sass', function () {
   return gulp.src('./_scss/style.scss')
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [
@@ -36,6 +37,7 @@ gulp.task('sass', function () {
 // libsass for ie stylsheets
 gulp.task('sass-ie', function () {
   return gulp.src('./_scss/style-ie.scss')
+    .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(sass({
       includePaths: [

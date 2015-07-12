@@ -42,7 +42,7 @@
         			<h1 class="site-title">
                 <a href="/" rel="home">
                   <span class="screen-reader-text">Turnip the Beet</span>
-                  <img src="images-build/new-logo-prototype-480.png" sizes="20vw" srcset="images-build/new-logo-prototype.png 1200w, images-build/new-logo-prototype-1024.png 1024w, images-build/new-logo-prototype-800.png 800w, images-build/new-logo-prototype-640.png 640w, images-build/new-logo-prototype-480.png 480w, images-build/new-logo-prototype-320.png 320w" alt="Turnip the Beets Farm" class="site-logo">
+                  <img src="images-build/logo/new-logo-prototype-480.png" sizes="20vw" srcset="images-build/logo/new-logo-prototype.png 1200w, images-build/logo/new-logo-prototype-1024.png 1024w, images-build/logo/new-logo-prototype-800.png 800w, images-build/logo/new-logo-prototype-640.png 640w, images-build/logo/new-logo-prototype-480.png 480w, images-build/logo/new-logo-prototype-320.png 320w" alt="Turnip the Beets Farm" class="site-logo">
                 </a>
               </h1>
         		</div><!-- .site-branding -->
@@ -56,6 +56,11 @@
         			  <li class="site-navigation__menu-item"><a href="our-food/" class="site-navigation__menu-link">Our Food</a></li>
         			</ul>
         		</nav><!-- #site-navigation -->
+
+            <aside class="site-intro">
+              <p>We grow organic food with hard work, love, and a cattle dog in the lovely foothills of Lorane,&nbsp;Oregon.</p>
+              <a href="#" class="site-intro__link">Find our Food <span class="icon-right-arrow">→</span></a>
+            </aside>
 
         	</header><!-- #masthead -->
 

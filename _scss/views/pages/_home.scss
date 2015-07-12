@@ -1,3 +1,6 @@
+$home-site-header-top-overlay:rgba(50,90,120,0.25);
+$home-site-header-bottom-overlay:rgba(230,120,30,0.18);
+
 .home .site-header {
   position:absolute;
   top:0;
@@ -11,32 +14,65 @@
   }
   background-size: cover;
   background-repeat: no-repeat;
-  background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-320.jpg');
+  background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-320.jpg');
   @media all and (min-width: 320px) {
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-480.jpg');
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-480.jpg');
   }
   @media all and (min-width: 480px) {
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-640.jpg');
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-640.jpg');
   }
   @media all and (min-width: 640px) {
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-800.jpg');
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-800.jpg');
   }
   @media all and (min-width: 800px) {
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-1024.jpg');
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1024.jpg');
   }
   @media all and (min-width: 1024px) {
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-1280.jpg');
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1280.jpg');
   }
   @media all and (min-width: 1280px) {
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-1600.jpg');
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1600.jpg');
   }
   @media all and (min-width: 1600px) {
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-1890.jpg');
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1890.jpg');
   }
   @media all and (min-width: 1890px) {
-    background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0)), url('/images-build/background-tractor-2400.jpg');
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-2400.jpg');
   }
 }
+
+.site-intro {
+  display:none;
+}
+
+.home .site-intro {
+  @include extend-animation(smoothFadeInUpCenterCenter, 1.35s, 1s, ease-in-out, 0, forwards);
+  display:block;
+  position:absolute;
+  top:50%;
+  left:50%;
+  transform:translateX(-50%) translateY(-50%);
+  width:80%;
+  padding:1em;
+  font-family:$sans-serif;
+  font-size:150%;
+  font-weight:300;
+  background:rgba(0,0,0,0.5);
+  outline:3000px solid rgba(0,0,0,0.5);
+  color:white;
+  text-align:center;
+  @media all and (min-width:800px) {
+    width:50%;
+  }
+}
+
+.home .site-intro__link {
+  @include extend-animation(smoothFadeInUp, 0.8s, 1.55s, ease-out, 0, forwards);
+  font-weight:900;
+  color:white;
+}
+
+// Front page layouts
 
 .home section {
   position:absolute;
@@ -55,7 +91,7 @@
   top:200%;
 }
 
-.home .blog-promo {
+.home .field-notes-promo {
   top:300%;
 }
 

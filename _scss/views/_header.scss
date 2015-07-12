@@ -7,11 +7,13 @@
 }
 
 .site-logo {
+  position:relative;
   display:block;
   float:left;
   width:6em;
   margin-top:-0.175em;
   height:auto;
+  z-index:200;
 }
 
 .site-navigation--main {

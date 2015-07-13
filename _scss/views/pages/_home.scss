@@ -377,6 +377,14 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
   z-index:100;
 }
 
+.home #photos .js-image-nav {
+  position:absolute;
+  bottom:1em;
+  left:50%;
+  height:1em;
+  transform:translateX(-50%);
+}
+
 .lightbox {
   &::before {
     position:absolute;

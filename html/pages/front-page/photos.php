@@ -3,7 +3,7 @@
   $images_list = array();
   $unique_filenames = array();
 
-  foreach(glob('./images-build/about/*.*') as $filename){
+  foreach(glob('./images-build/photo-stream/*.*') as $filename){
      $images_list[] = $filename;
   }
 
@@ -33,14 +33,14 @@
 
     $previous_width = "";
 
-    $srcset_list[$unique_filenames[$i]] = array();
+    $srcset_list[$i] = array();
 
-    foreach(glob('./images-build/about' . $unique_filenames[$i] . '*.*') as $srcset_item){
+    foreach(glob('./images-build/photo-stream' . $unique_filenames[$i] . '*.*') as $srcset_item){
 
       $image_width = getimagesize($srcset_item)[0];
 
       if ($image_width != $previous_width) {
-          $srcset_list[$unique_filenames[$i]][] = $srcset_item . ' ' . $image_width;
+          $srcset_list[$i][] = $srcset_item . ' ' . $image_width;
       }
 
       $previous_width = $image_width;
@@ -51,10 +51,8 @@
 
 <section id="photos" class="js-front-page-waypoint photos-promo">
   <div class="photo-grid col-group">
-    <h1 class="section-title">Photos</h1>  
+    <h1 class="section-title">Photos</h1>
   </div>
-
-
 
   <?php
     echo '<script>';

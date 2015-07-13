@@ -281,33 +281,56 @@ $(document).on('ready', function() {
 
     var lightboxImg = [];
 
-    for (var image in srcsetArray) {
-      srcsetArray[image] = srcsetArray[image].reverse();
+    function getImages(offset) {
+      for (var i = 0; i < offset; i++) {
+        srcsetArray[i] = srcsetArray[i].reverse();
 
-      var srcsetString = "";
+        var srcsetString = "";
 
-      for (var stringItem in srcsetArray[image]) {
-        srcsetString += srcsetArray[image][stringItem];
-        if (stringItem < srcsetArray[image].length-1) {
-          srcsetString += 'w, ';
-        } else {
-          srcsetString += 'w';
+        for (var stringItem in srcsetArray[i]) {
+          srcsetString += srcsetArray[i][stringItem];
+          if (stringItem < srcsetArray[i].length-1) {
+            srcsetString += 'w, ';
+          } else {
+            srcsetString += 'w';
+          }
         }
+
+        var src = srcsetString.split(' ')[0];
+
+        lightboxImg.push( $('<img class="photo-grid__photo" src="' + src + '" sizes="100vw" srcset="' + srcsetString + '" />') );
+
+        var $imgdiv = $('<div id="photo-grid__item-' + [imageID] + '" class="photo-grid__item col-1-3"></div>');
+
+        var $style = $('<style>#photo-grid__item-' + [imageID] + ' { background-image:url("' + srcsetString.split(' ')[2] + '"); }</style>');
+
+        imageID++;
+
+        $('#photos .photo-grid').append( $imgdiv );
+        $('#photos .photo-grid').append( $style );
+      }
+    }
+    getImages(6);
+
+    function buildImagesNav() {
+      console.log('srcsetArray.length: ' + srcsetArray.length);
+      var imagePageCount = ( srcsetArray.length / 6);
+      console.log('imagePageCount: ' + imagePageCount);
+
+      var $imageNav = $('<nav id="js-image-nav"><ul id="js-image-nav__ul"></ul></nav>');
+
+      $imageNav.appendTo($('#photos'));
+
+      for (var i = 0; i < imagePageCount; i++) {
+        var $imageNavItem = $('<li><a class="js-image-nav__link" href="#0" data-img-link-"' + (i+1) + '">' + (i+1) + '</a></li>');
+
+        $('#js-image-nav__ul').append( $($imageNavItem) );
       }
 
-      var src = srcsetString.split(' ')[0];
 
-      lightboxImg.push( $('<img class="photo-grid__photo" src="' + src + '" sizes="100vw" srcset="' + srcsetString + '" />') );
-
-      var $imgdiv = $('<div id="photo-grid__item-' + [imageID] + '" class="photo-grid__item col-1-3"></div>');
-
-      var $style = $('<style>#photo-grid__item-' + [imageID] + ' { background-image:url("' + srcsetString.split(' ')[2] + '"); }</style>');
-
-      imageID++;
-
-      $('#photos .photo-grid').append( $imgdiv );
-      $('#photos .photo-grid').append( $style );
     }
+    buildImagesNav();
+
 
     var idString = "";
 

@@ -119,3 +119,7 @@ abbr {
     cursor: help;
   }
 }
+
+.time {
+  @include typl8-smallcaps($typl8-smcps-color, $typl8-smcps-weight);
+}

@@ -2,6 +2,10 @@
   @include layout(12 0.25 after);
 }
 
+.col-group-tight {
+  @include layout(12 0 split);
+}
+
 .col-1-4 {
   @include span(3 of 12);
 }
@@ -20,6 +24,14 @@
 
 .col-3-4 {
   @include span(9 of 12);
+}
+
+.col-5-12 {
+  @include span(5 of 12);
+}
+
+.col-7-12 {
+  @include span(7 of 12);
 }
 
 .col-last {

@@ -1,6 +1,6 @@
       </div><!-- #content -->
 
-      <footer id="colophon" class="site-footer" role="contentinfo">
+      <footer id="colophon" class="js-front-page-waypoint site-footer" role="contentinfo">
         <div class="site-info">
           footer
         </div><!-- .site-info -->

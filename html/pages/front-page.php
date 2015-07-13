@@ -1,25 +1,38 @@
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main" role="main">
 
-			<section id="about" class="about-promo">
-				<div class="col-2-3">
-					<h1>About Us</h1>
-					<p>Our work brings together a reverence for the land with a passion for good food.</p>
-					<p>We grow over 100 varieties of fruits, vegetables, and herbs on just over 3 acres of leased land. Focusing on heirloom and specialty crops, we grow some of the most flavorful and nutrient-dense food available.</p>
-					<p>We farm without the use of chemicals, pesticides, and synthetic fertilizers. From seed to harvest, we are committed to a lifestyle that honors lively land, strong local economy, and delicious food.</p>
-					<p>Thanks for your support!</p>
+			<?php include('./pages/front-page/about.php'); ?>
+
+			<section id="food" class="js-front-page-waypoint food-promo col-group">
+
+				<div class="food-grid col-5-12">
+					<div class="food-grid__item food-grid__top"></div>
+					<div class="col-group">
+						<div class="food-grid__item food-grid__left col-1-2"></div>
+						<div class="food-grid__item food-grid__right col-1-2"></div>
+					</div>
 				</div>
-				<div class="col-1-3 col-last">
-					<img src="images-build/about/two-farmers-and-a-blue-heeler-800.jpg" alt="Two farmers and a blue heeler.">
-				</div>
+
+				<article class="food-article col-7-12">
+					<h1 class="section-title">Join Our CSA!</h1>
+					<p>Do you want organic, locally grown produce delivered weekly? Our 2015 farm shares are now available!</p>
+					<p><a href="#">Sign up</a> for our CSA to claim your share of our harvest.</p>
+					<h2>Lane County Farmers Market</h2>
+					<p>Come visit us each Saturday at the <a href="#">Lane County Farmers Market</a> for our freshest offerings.</p>
+					<p>Schedule:</p>
+					<p>
+						<span>February - April</span>
+						<span>Saturdays from <span class="time">10AM</span>&mdash;<span class="time">2PM</span></span>
+					</p>
+					<p>
+						<span>April - November</span>
+						<span>Saturdays from <span class="time">9AM&mdash;</span><span class="time">3PM</span></span>
+					</p>
+				</article>
 			</section>
 
-			<section id="food" class="food-promo">
-				<h1>Our Food</h1>
-			</section>
-
-			<section id="field-notes" class="field-notes-promo">
-				<h1>Field Notes</h1>
+			<section id="field-notes" class="js-front-page-waypoint field-notes-promo">
+				<h1 class="section-title">Field Notes</h1>
 				<article class="blog__excerpt">
 					<header class="blog-post__meta">
 						<h3 class="post-title">Happy summer!</h3>
@@ -34,8 +47,8 @@
 				</article>
 			</section>
 
-			<section id="photos" class="photos-promo">
-				<h1>Photos</h1>
+			<section id="photos" class="js-front-page-waypoint photos-promo">
+				<h1 class="section-title">Photos</h1>
 			</section>
 
 		</main><!-- #main -->

@@ -1,3 +1,38 @@
+$home-main-background-top-overlay:rgba(10,50,90,0.35);
+$home-main-background-bottom-overlay:rgba(8,80,70,0.46);
+
+.home {
+  height:600%;
+  background-attachment: fixed;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-320.jpg');
+  @media all and (min-width: 320px) {
+    background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-480.jpg');
+  }
+  @media all and (min-width: 480px) {
+    background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-640.jpg');
+  }
+  @media all and (min-width: 640px) {
+    background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-800.jpg');
+  }
+  @media all and (min-width: 800px) {
+    background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-1024.jpg');
+  }
+  @media all and (min-width: 1024px) {
+    background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-1280.jpg');
+  }
+  @media all and (min-width: 1280px) {
+    background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-1600.jpg');
+  }
+  @media all and (min-width: 1600px) {
+    background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-1890.jpg');
+  }
+  @media all and (min-width: 1890px) {
+    background-image:linear-gradient(to bottom, $home-main-background-top-overlay, $home-main-background-bottom-overlay), url('/images-build/backgrounds/background-greenfields-2400.jpg');
+  }
+}
+
 $home-site-header-top-overlay:rgba(50,90,120,0.25);
 $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
 
@@ -8,36 +43,46 @@ $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
   width:100%;
   padding:2em;
   height:100%;
-  @media all and (min-width: 600px) {
-    padding-bottom:50%;
-    background-position: center 35%;
-  }
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-320.jpg');
-  @media all and (min-width: 320px) {
-    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-480.jpg');
-  }
-  @media all and (min-width: 480px) {
-    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-640.jpg');
-  }
-  @media all and (min-width: 640px) {
-    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-800.jpg');
-  }
-  @media all and (min-width: 800px) {
-    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1024.jpg');
-  }
-  @media all and (min-width: 1024px) {
-    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1280.jpg');
-  }
-  @media all and (min-width: 1280px) {
-    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1600.jpg');
-  }
-  @media all and (min-width: 1600px) {
-    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1890.jpg');
-  }
-  @media all and (min-width: 1890px) {
-    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-2400.jpg');
+  overflow:hidden;
+  z-index:10;
+  .site-header__background {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    z-index:-1;
+    @media all and (min-width: 600px) {
+      padding-bottom:50%;
+      background-position: center 35%;
+    }
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-320.jpg');
+    @media all and (min-width: 320px) {
+      background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-480.jpg');
+    }
+    @media all and (min-width: 480px) {
+      background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-640.jpg');
+    }
+    @media all and (min-width: 640px) {
+      background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-800.jpg');
+    }
+    @media all and (min-width: 800px) {
+      background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1024.jpg');
+    }
+    @media all and (min-width: 1024px) {
+      background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1280.jpg');
+    }
+    @media all and (min-width: 1280px) {
+      background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1600.jpg');
+    }
+    @media all and (min-width: 1600px) {
+      background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-1890.jpg');
+    }
+    @media all and (min-width: 1890px) {
+      background-image:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay), url('/images-build/backgrounds/background-tractor-2400.jpg');
+    }
   }
 }
 
@@ -57,8 +102,8 @@ $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
   font-family:$sans-serif;
   font-size:150%;
   font-weight:300;
-  background:rgba(0,0,0,0.5);
-  outline:3000px solid rgba(0,0,0,0.5);
+  background:rgba(0,0,0,0.4);
+  outline:3000px solid rgba(0,0,0,0.4);
   color:white;
   text-align:center;
   @media all and (min-width:800px) {
@@ -79,29 +124,181 @@ $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
   left:0;
   background-image:linear-gradient(to bottom, #eee, #ddd);
   width:100%;
-  padding:2em;;
+  padding:2em;
   height:100%;
 }
 
+
+// About
 .home .about-promo {
   top:100%;
+  height:150%;
+  & .col-1-3 {
+    @extend .col-1-2;
+    height:33.33333%;
+  }
+  .about-grid__three {
+    float:right;
+  }
+  .about-grid__four {
+    float:right;
+  }
+  @media all and (min-width:950px) {
+    height:100%;
+    .col-1-3 {
+      width: 33.33333%;
+      float: left;
+      height:50%;
+    }
+  }
 }
 
+// Food
 .home .food-promo {
-  top:200%;
+  top:250%;
+  @media all and (min-width:950px) {
+    top:200%;
+  }
 }
 
 .home .field-notes-promo {
-  top:300%;
+  top:350%;
+  @media all and (min-width:950px) {
+    top:300%;
+  }
 }
 
 .home .photos-promo {
-  top:400%;
+  top:450%;
+  @media all and (min-width:950px) {
+    top:400%;
+  }
 }
 
 .home .site-footer {
   position: absolute;
   width:100%;
+  height:100%;
   padding:2em;
-  top:500%;
+  top:550%;
+  @media all and (min-width:950px) {
+    top:500%;
+  }
+}
+
+
+/*
+ * Front page layout details
+ *
+ * ABOUT
+ *
+ */
+
+.home .about-promo {
+  padding:0;
+  text-align: center;
+  color:white;
+  background: rgba(0,0,0,0.3);
+}
+
+.home .about-promo .section-title {
+  color:white;
+}
+
+.home .about-promo .col-1-3 {
+  position:relative;
+}
+
+.home .about-promo .inner-content-wrap {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  left:0;
+  width:100%;
+  padding:2em;
+}
+
+.home .about-promo p {
+  margin-bottom:0;
+}
+
+$about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay);
+
+.about-grid__one {
+  background-image:$about-grid-linear-gradient, url('/images-build/about/john-tractor-original.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.about-grid__three {
+  background-image:$about-grid-linear-gradient, url('/images-build/about/11143534_424251924401593_7162826770879627122_n-original.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+
+}
+
+.about-grid__five {
+  background-image:$about-grid-linear-gradient, url('/images-build/about/two-farmers-and-a-blue-heeler-1024.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: 20% center;
+}
+
+.about-grid__one,
+.about-grid__three,
+.about-grid__five {
+  box-shadow:0 0 5px rgba(0,0,0,0.125);
+  border:0.5em solid white;
+}
+
+/*
+ * Front page layout details
+ *
+ * FOOD
+ *
+ */
+
+.food-grid {
+  position:relative;
+  height:100%;
+  .col-group {
+    position:relative;
+    height:38.2%;
+  }
+}
+
+.food-grid__item {
+  border:0.5em solid white;
+}
+
+.food-grid__top {
+  position:relative;
+  height:61.8%;
+  background-image:$about-grid-linear-gradient, url('/images-build/about/2-Fall-CSA-Lela-lookin-pretty-original.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center 37%;
+  border-bottom:0;
+}
+
+.food-grid__left,
+.food-grid__right {
+  position:relative;
+  height:100%;
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.food-grid__left {
+  border-right:0.25em solid white;
+  background-image:$about-grid-linear-gradient, url('/images-build/food/1stfalcsa-original.jpg');
+}
+
+.food-grid__right {
+  border-left:0.25em solid white;
+  background-image:$about-grid-linear-gradient, url('/images-build/food/spud-harvest-original.jpg')
+}
+
+.home .food-article {
+  padding-left:2em;
 }

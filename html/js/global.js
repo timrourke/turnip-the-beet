@@ -1,3 +1,8 @@
+/*
+ *  Typekit loader
+ *
+ */
+
 (function(d) {
   var config = {
     kitId: 'dbu2qpr',
@@ -12,6 +17,10 @@ var weatherAPI = {
   cityId: '5720755'
 };
 
+/*
+ *  Weather Stuff
+ *
+ */
 
 function getDate(timestamp) {
 
@@ -103,7 +112,156 @@ function getWeather() {
 
 }
 
-
 $(document).on('ready', function() {
   getWeather();
+});
+
+/*
+ *  Scroll code
+ *
+ */
+
+$(document).on('ready', function() {
+
+  if ($('body').hasClass('home')) {
+
+    function debounce(fn, delay) {
+      var timer = null;
+      return function () {
+        var context = this, args = arguments;
+        clearTimeout(timer);
+        timer = setTimeout(function () {
+          fn.apply(context, args);
+        }, delay);
+      };
+    }
+
+    // scroll detection variables
+    var lastScrollTop = 0,
+        newScrollTop,
+        scrollDirection;
+
+    // current scroll target index
+    var testScrollTargetIndex = 0;
+    var lastScrollIndex = 0;
+
+    // targets to which we shall scroll
+    var scrollTargets = $('.js-front-page-waypoint');
+
+    // build scrolling navigation menu
+    var $scrollIndicator = $('<nav id="js-scroll-indicator"><ul></ul></nav>');
+
+    for (var i = 0; i < scrollTargets.length; i++) {
+      var linkClass = "";
+      if (i == testScrollTargetIndex) {
+        linkClass = "js-active";
+      }
+      $scrollIndicator.find('ul').append($('<li><a class="' + linkClass + '" href="#' + $(scrollTargets[i]).attr('id') + '">&nbsp;</a></li>'));
+    }
+
+    $('body').append($scrollIndicator);
+
+    function setScrollNavActive() {
+      $('#js-scroll-indicator a').removeClass('js-active');
+      $('#js-scroll-indicator a').eq(testScrollTargetIndex).addClass('js-active');
+    }
+
+    $('#js-scroll-indicator a').on('click', function(e) {
+      e.preventDefault();
+
+      var href = e.target.getAttribute('href');
+
+      console.log( $(href) );
+
+      $(href).velocity('scroll', {
+        complete: function() {
+          setScrollNavActive();
+        }
+      });
+    })
+
+    function detectDirection() {
+      newScrollTop = window.scrollY;
+      if (newScrollTop > lastScrollTop) {
+        direction = 'down';
+      } else {
+        direction = 'up';
+      }
+      lastScrollTop = newScrollTop;
+
+      var viewportTop = window.scrollY;
+      var viewportBottom = window.scrollY + $(window).height();
+
+      if (direction == 'down') {
+
+        for (var index in testTargetRanges) {
+          if (viewportBottom > testTargetRanges[index][0] && viewportBottom < testTargetRanges[index][1]) {
+            testScrollTargetIndex = index;
+          }
+        }
+
+      } else if (direction == 'up') {
+
+        for (var index in testTargetRanges) {
+          if (viewportTop < testTargetRanges[index][1] && viewportTop > testTargetRanges[index][0]) {
+            testScrollTargetIndex = index;
+          }
+        }
+
+      }
+
+        setScrollNavActive();
+
+      return direction;
+    }
+
+    var testTargetRanges = [];
+
+    function getTargetParams() {
+      var windowHeight = $(window).height();
+      testTargetRanges = [];
+      for(var i = 0; i < scrollTargets.length; i++) {
+        var targetTop = $(scrollTargets[i]).offset().top;
+        var targetBottom = $(scrollTargets[i]).offset().top + parseInt(windowHeight);
+        testTargetRanges.push([targetTop, targetBottom]);
+      }
+    }
+    getTargetParams();
+
+    $(window).on('resize', debounce(function() {
+        getTargetParams();
+      }, 100));
+
+    $(window).bind('scroll', function() {
+      scrollDirection = detectDirection();
+    })
+
+    function setScroll() {
+      $(window).on('scroll.navScroll', debounce(function(e) {
+
+        if (lastScrollIndex == testScrollTargetIndex) {
+          return;
+        }
+
+        var viewportTop = window.scrollY;
+        var viewportBottom = window.scrollY + $(window).height();
+        var target = $(scrollTargets[testScrollTargetIndex]);
+
+        $(window).unbind('.navScroll');
+
+        target.velocity('scroll', {
+          complete: function() {
+            lastScrollIndex = testScrollTargetIndex;
+            setTimeout(function(){
+              setScroll();
+            },25);
+          }
+        });
+
+      }, 50));
+    }
+    setScroll();
+
+  }
+
 });

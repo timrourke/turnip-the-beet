@@ -29,3 +29,46 @@
     display:none;
   }
 }
+
+#js-scroll-indicator {
+  @include extend-animation(smoothFadeInUp, 1.35s, 1.5s, ease-in-out, 0, forwards);
+  position:fixed;
+  bottom:2em;
+  right:2em;
+  width:1em;
+  height:10em;
+  z-index: 200;
+}
+
+#js-scroll-indicator ul {
+  list-style-type:none;
+  padding:0;
+  margin:0;
+}
+
+#js-scroll-indicator li {
+  display:block;
+  width:0.75em;
+  height:0.75em;
+  border:0.0625em solid white;
+  border-radius:50%;
+  margin-bottom: 1em;
+  box-shadow:0 0 3px rgba(0,0,0,0.125);
+}
+
+#js-scroll-indicator a {
+  position:relative;
+  display:block;
+  width:100%;
+  height:100%;
+  border-radius:50%;
+  &:focus {
+    border:none;
+    outline:none;
+    background-color: transparent;
+  }
+}
+
+#js-scroll-indicator a.js-active {
+  background-color:rgba(255,255,255,0.5);
+}

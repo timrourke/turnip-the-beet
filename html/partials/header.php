@@ -37,7 +37,7 @@
         <div id="page" class="hfeed site">
         	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-        	<header id="masthead" class="site-header" role="banner">
+        	<header id="masthead" class="js-front-page-waypoint site-header" role="banner">
         		<div class="site-branding">
         			<h1 class="site-title">
                 <a href="/" rel="home">
@@ -61,6 +61,8 @@
               <p>We grow organic food with hard work, love, and a cattle dog in the lovely foothills of Lorane,&nbsp;Oregon.</p>
               <a href="#" class="site-intro__link">Find our Food <span class="icon-right-arrow">→</span></a>
             </aside>
+
+            <div class="site-header__background"></div>
 
         	</header><!-- #masthead -->
 

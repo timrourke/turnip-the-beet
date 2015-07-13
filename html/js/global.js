@@ -191,11 +191,12 @@ $(document).on('ready', function() {
 
       var viewportTop = window.scrollY;
       var viewportBottom = window.scrollY + $(window).height();
+      var bufferDistance = 40; //Add a little space before event kicks to prevent annoying surprises
 
       if (direction == 'down') {
 
         for (var index in testTargetRanges) {
-          if (viewportBottom > testTargetRanges[index][0] && viewportBottom < testTargetRanges[index][1]) {
+          if (viewportBottom > testTargetRanges[index][0] + bufferDistance && viewportBottom < testTargetRanges[index][1] - bufferDistance) {
             testScrollTargetIndex = index;
           }
         }
@@ -203,7 +204,7 @@ $(document).on('ready', function() {
       } else if (direction == 'up') {
 
         for (var index in testTargetRanges) {
-          if (viewportTop < testTargetRanges[index][1] && viewportTop > testTargetRanges[index][0]) {
+          if (viewportTop < testTargetRanges[index][1] - bufferDistance && viewportTop > testTargetRanges[index][0] + bufferDistance) {
             testScrollTargetIndex = index;
           }
         }

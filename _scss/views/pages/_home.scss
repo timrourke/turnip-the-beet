@@ -100,13 +100,16 @@ $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
   width:80%;
   padding:1em;
   font-family:$sans-serif;
-  font-size:150%;
+  font-size:200%;
   font-weight:300;
   background:rgba(0,0,0,0.4);
   outline:3000px solid rgba(0,0,0,0.4);
   color:white;
   text-align:center;
   @media all and (min-width:800px) {
+    width:70%;
+  }
+  @media all and (min-width:900px) {
     width:50%;
   }
 }

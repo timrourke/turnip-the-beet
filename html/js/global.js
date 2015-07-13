@@ -125,6 +125,7 @@ $(document).on('ready', function() {
 
   if ($('body').hasClass('home')) {
 
+    //Generalized debounce function
     function debounce(fn, delay) {
       var timer = null;
       return function () {
@@ -151,6 +152,7 @@ $(document).on('ready', function() {
     // build scrolling navigation menu
     var $scrollIndicator = $('<nav id="js-scroll-indicator"><ul></ul></nav>');
 
+    // build up scroll navigation menu's dots for quick nav/user feedback
     for (var i = 0; i < scrollTargets.length; i++) {
       var linkClass = "";
       if (i == testScrollTargetIndex) {
@@ -161,17 +163,17 @@ $(document).on('ready', function() {
 
     $('body').append($scrollIndicator);
 
+    // set current nav link to '.active' based on index of current target element
     function setScrollNavActive() {
       $('#js-scroll-indicator a').removeClass('js-active');
       $('#js-scroll-indicator a').eq(testScrollTargetIndex).addClass('js-active');
     }
 
+    // event listener for scroll nav menu
     $('#js-scroll-indicator a').on('click', function(e) {
       e.preventDefault();
 
       var href = e.target.getAttribute('href');
-
-      console.log( $(href) );
 
       $(href).velocity('scroll', {
         complete: function() {
@@ -210,8 +212,7 @@ $(document).on('ready', function() {
         }
 
       }
-
-        setScrollNavActive();
+      setScrollNavActive();
 
       return direction;
     }
@@ -230,8 +231,8 @@ $(document).on('ready', function() {
     getTargetParams();
 
     $(window).on('resize', debounce(function() {
-        getTargetParams();
-      }, 100));
+      getTargetParams();
+    }, 100));
 
     $(window).bind('scroll', function() {
       scrollDirection = detectDirection();
@@ -275,11 +276,72 @@ $(document).on('ready', function() {
 $(document).on('ready', function() {
 
   if ($('body').hasClass('home') && srcsetArray) {
-    console.dir(srcsetArray);
-    
-    for (var image in srcsetArray) {
-      console.dir(srcsetArray[image].reverse());
-    }
-  }
 
-});
+    var imageID = 0;
+
+    var lightboxImg = [];
+
+    for (var image in srcsetArray) {
+      srcsetArray[image] = srcsetArray[image].reverse();
+
+      var srcsetString = "";
+
+      for (var stringItem in srcsetArray[image]) {
+        srcsetString += srcsetArray[image][stringItem];
+        if (stringItem < srcsetArray[image].length-1) {
+          srcsetString += 'w, ';
+        } else {
+          srcsetString += 'w';
+        }
+      }
+
+      var src = srcsetString.split(' ')[0];
+
+      lightboxImg.push( $('<img class="photo-grid__photo" src="' + src + '" sizes="100vw" srcset="' + srcsetString + '" />') );
+
+      var $imgdiv = $('<div id="photo-grid__item-' + [imageID] + '" class="photo-grid__item col-1-3"></div>');
+
+      var $style = $('<style>#photo-grid__item-' + [imageID] + ' { background-image:url("' + srcsetString.split(' ')[2] + '"); }</style>');
+
+      imageID++;
+
+      $('#photos .photo-grid').append( $imgdiv );
+      $('#photos .photo-grid').append( $style );
+    }
+
+    var idString = "";
+
+    function makeLightBox() {
+      var $lightbox = $('<figure class="lightbox"></figure>').css({
+        'position':'fixed',
+        'top':'5%',
+        'left':'5%',
+        'width': parseInt($(window).width() * 0.9) + 'px',
+        'height': parseInt($(window).height() * 0.9) + 'px',
+        'z-index': 300,
+        'opacity':0
+      });
+      return $lightbox;
+    }
+
+    $('body').on('click', '.lightbox', function() {
+      $('.lightbox').remove();
+    });
+
+    for (var imgId in lightboxImg ) {
+      idString = '#photo-grid__item-' + imgId;
+      (function() {
+          var index = imgId;
+          $('body').on('click', idString, function() {
+            var $newLightBox = makeLightBox();
+            $( $newLightBox ).append(lightboxImg[index]);
+            $( $newLightBox ).appendTo( $('body') ).velocity({
+              opacity: 1
+            });
+          });
+      })();
+    }
+
+  }// end images gallery thing
+
+});//end onload callback

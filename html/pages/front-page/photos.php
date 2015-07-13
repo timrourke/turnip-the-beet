@@ -50,7 +50,10 @@
 ?>
 
 <section id="photos" class="js-front-page-waypoint photos-promo">
-  <h1 class="section-title">Photos</h1>
+  <div class="photo-grid col-group">
+    <h1 class="section-title">Photos</h1>  
+  </div>
+
 
 
   <?php

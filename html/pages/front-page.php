@@ -47,9 +47,7 @@
 				</article>
 			</section>
 
-			<section id="photos" class="js-front-page-waypoint photos-promo">
-				<h1 class="section-title">Photos</h1>
-			</section>
+			<?php include('./pages/front-page/photos.php'); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->

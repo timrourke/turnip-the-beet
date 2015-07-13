@@ -266,3 +266,20 @@ $(document).on('ready', function() {
   }
 
 });
+
+/*
+ * Build images grid on homepage
+ *
+ */
+
+$(document).on('ready', function() {
+
+  if ($('body').hasClass('home') && srcsetArray) {
+    console.dir(srcsetArray);
+    
+    for (var image in srcsetArray) {
+      console.dir(srcsetArray[image].reverse());
+    }
+  }
+
+});

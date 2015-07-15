@@ -217,6 +217,7 @@ $(document).on('ready', function() {
       return direction;
     }
 
+    // Set up our scroll target height ranges to check the scroll position against their locations
     var testTargetRanges = [];
 
     function getTargetParams() {
@@ -241,7 +242,7 @@ $(document).on('ready', function() {
     function setScroll() {
       $(window).on('scroll.navScroll', debounce(function(e) {
 
-        if (lastScrollIndex == testScrollTargetIndex) {
+        if (lastScrollIndex == testScrollTargetIndex || window.innerWidth < 600) {
           return;
         }
 
@@ -281,8 +282,13 @@ $(document).on('ready', function() {
 
     var lightboxImg = [];
 
+    offsetCounter = 0;
+
+    // Load images into our photo grid
     function getImages(offset) {
-      for (var i = 0; i < offset; i++) {
+      $('#photos .photo-grid').html('');
+
+      for (var i = (0 + (offset * 6)); i < ((offset * 6 ) + 6); i++) {
         srcsetArray[i] = srcsetArray[i].reverse();
 
         var srcsetString = "";
@@ -309,20 +315,19 @@ $(document).on('ready', function() {
         $('#photos .photo-grid').append( $imgdiv );
         $('#photos .photo-grid').append( $style );
       }
+      registerLightboxImages();
     }
-    getImages(6);
+    getImages(offsetCounter);
 
     function buildImagesNav() {
-      console.log('srcsetArray.length: ' + srcsetArray.length);
       var imagePageCount = ( srcsetArray.length / 6);
-      console.log('imagePageCount: ' + imagePageCount);
 
       var $imageNav = $('<nav id="js-image-nav"><ul id="js-image-nav__ul"></ul></nav>');
 
       $imageNav.appendTo($('#photos'));
 
       for (var i = 0; i < imagePageCount; i++) {
-        var $imageNavItem = $('<li><a class="js-image-nav__link" href="#0" data-img-link-"' + (i+1) + '">' + (i+1) + '</a></li>');
+        var $imageNavItem = $('<li><a class="js-image-nav__link" href="#0" data-img-link="' + (i+1) + '">' + (i+1) + '</a></li>');
 
         $('#js-image-nav__ul').append( $($imageNavItem) );
       }
@@ -331,6 +336,11 @@ $(document).on('ready', function() {
     }
     buildImagesNav();
 
+    $('body').on('click', '.js-image-nav__link', function(e) {
+      e.preventDefault();
+
+      getImages( e.target.getAttribute('data-img-link') - 1 );
+    });
 
     var idString = "";
 
@@ -351,20 +361,87 @@ $(document).on('ready', function() {
       $('.lightbox').remove();
     });
 
-    for (var imgId in lightboxImg ) {
-      idString = '#photo-grid__item-' + imgId;
-      (function() {
-          var index = imgId;
-          $('body').on('click', idString, function() {
-            var $newLightBox = makeLightBox();
-            $( $newLightBox ).append(lightboxImg[index]);
-            $( $newLightBox ).appendTo( $('body') ).velocity({
-              opacity: 1
+    function registerLightboxImages() {
+      for (var imgId in lightboxImg ) {
+        idString = '#photo-grid__item-' + imgId;
+        (function() {
+            var index = imgId;
+            $('body').on('click', idString, function() {
+              var $newLightBox = makeLightBox();
+              $( $newLightBox ).append(lightboxImg[index]);
+              $( $newLightBox ).appendTo( $('body') ).velocity({
+                opacity: 1
+              });
             });
-          });
-      })();
+        })();
+      }
     }
 
   }// end images gallery thing
 
 });//end onload callback
+
+/*
+ * Ajax email form
+ *
+ */
+
+$(document).on('ready', function() {
+
+  var $contactForm = $('#js-contact-form');
+
+  $contactForm.on('submit', function(e) {
+    e.preventDefault();
+
+    contactFormApp.sendFormObject(contactFormApp.createFormObject());
+  });
+
+});
+
+var contactFormApp = contactFormApp || {};
+
+// Create form
+contactFormApp.createFormObject = function() {
+
+	var retJson = {};
+
+	retJson.user_name = $('#user_name').val();
+	retJson.user_email = $('#user_email').val();
+  retJson.nonce = $('#js-contact-form #nonce').val();
+	retJson.user_message = $('#user_message').val();
+
+  console.log(retJson);
+
+	return retJson;
+
+};
+
+contactFormApp.sendFormObject = function(emailData) {
+
+  var contactAjaxConfig = {
+    url: '/mail.php',
+    type: 'POST',
+    data: emailData,
+    success: function(data) {
+      data = JSON.parse(data);
+      console.log(data);
+      $('#js-contact-form .contactForm__success h2').text(data.type + '!');
+      $('#js-contact-form .contactForm__success-message').text(data.message);
+      $('.contactForm__loading').slideUp();
+      $('.contactForm__success').show();
+      $('#js-contact-form label, #js-contact-form input, #js-contact-form button').slideUp();
+    },
+    error: function(err) {
+      err = JSON.parse(err);
+      console.log('error');
+      console.log(err);
+      $('#js-contact-form .contactForm__error h2').text(err.type + '!');
+      $('#js-contact-form .contactForm__error-message').text(err.message);
+      $('.contactForm__loading').slideUp();
+      $('.contactForm__error').show();
+    }
+  };
+
+  $.ajax(contactAjaxConfig);
+
+};

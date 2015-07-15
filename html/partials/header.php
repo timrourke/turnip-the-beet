@@ -59,7 +59,7 @@
 
             <aside class="site-intro">
               <p>We grow organic food with hard work, love, and a cattle dog in the lovely foothills of Lorane,&nbsp;Oregon.</p>
-              <a href="#" class="site-intro__link">Find our Food <span class="icon-right-arrow">→</span></a>
+              <a href="#food" class="site-intro__link">Find our Food <span class="icon-right-arrow">→</span></a>
             </aside>
 
             <div class="site-header__background"></div>

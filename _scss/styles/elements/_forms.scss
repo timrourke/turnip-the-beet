@@ -103,6 +103,12 @@ form {
   margin-bottom: $typl8-indent-val;
 }
 
+label {
+  position:relative;
+  font-family:$sans-serif;
+  text-transform:uppercase;
+}
+
 fieldset {
   margin:0;
   border:0;
@@ -167,11 +173,11 @@ font-size:1em;
   -webkit-appearance: none;
      -moz-appearance: none;
           appearance: none;
-  color:#666;
+  color:lighten($active-input-color, 25%);
   transition:all 0.3s ease-in-out;
   overflow:hidden;
   &:hover {
-    color:green;
+    color:white;
     transform:scale(1.025);
   }
 }
@@ -189,14 +195,15 @@ button,
   background-image:linear-gradient(to bottom, $neutral-input-color, darken($neutral-input-color, 20%) 95%);
   border: u(.075rem) solid darken($neutral-input-color, 20%);
   &.button--glass {
-    background-image:linear-gradient(to bottom, lighten(green, 20%), lighten(blue, 40%) 95%);
-    border: u(.075rem) solid green;
+    background-image:linear-gradient(to bottom, lighten($neutral-input-color, 20%), lighten($neutral-input-color, 40%) 95%);
+    border: u(.075rem) solid solid darken($neutral-input-color, 15%);
   }
 }
 
-input[type="submit"] {
-  background-image:linear-gradient(to bottom, $confirm-input-color, darken($confirm-input-color, 15%) 95%);
-  border: u(.075rem) solid darken($confirm-input-color, 15%);
+input[type="submit"],
+button[type="submit"] {
+  background-image:linear-gradient(to bottom, $active-input-color, darken($active-input-color, 15%) 95%);
+  border: u(.075rem) solid darken($active-input-color, 15%);
   &:hover {
     color:white;
   }
@@ -571,4 +578,26 @@ button {
 }
 .controls-inline .control + .control {
   margin-left: u(1rem);
+}
+
+.contactForm input[type="text"],
+.contactForm input[type="email"] {
+  width:100%;
+}
+
+.contactForm button[type="submit"] {
+  display:block;
+  margin-top:1.25em;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+.contactForm__success,
+.contactForm__error,
+.contactForm__loading {
+  display:none;
+}
+
+.contactForm textarea {
+  height:8em;
 }

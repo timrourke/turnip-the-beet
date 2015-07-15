@@ -12,6 +12,12 @@
               <p class="address-line">Lorane, Oregon 97451</p>
             </div>
           </div>
+          <div class="col-1-3">
+            <p>hello</p>
+          </div>
+          <div class="col-1-3 col-last">
+            <?php include('partials/contactform.php'); ?>
+          </div>
         </div><!-- .site-info -->
       </footer><!-- #colophon -->
     </div><!-- #page -->

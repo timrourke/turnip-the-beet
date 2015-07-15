@@ -445,7 +445,7 @@ $(document).on('ready', function() {
         'left':'5%',
         'width': parseInt($(window).width() * 0.9) + 'px',
         'height': parseInt($(window).height() * 0.9) + 'px',
-        'z-index': 300,
+        'z-index': 30000,
         'opacity':0
       });
       return $lightbox;

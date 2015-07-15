@@ -13,7 +13,7 @@
 
 var weatherAPI = {
   key: '1995a1ef818450cf6e5cc92d91f40a3d',
-  url: 'http://api.openweathermap.org/data/2.5/weather?id=',
+  url: 'https://api.openweathermap.org/data/2.5/weather?id=',
   cityId: '5720755'
 };
 

@@ -50,7 +50,7 @@ $(document).on('ready', function() {
     }
   }
 
-  $(document).delegate( '#js-menu-toggle', 'click', function(){
+  $(document).delegate( '#js-menu-toggle', 'click touchstart', function(){
     toggleMenu();
   });
 
@@ -264,7 +264,7 @@ $(document).on('ready', function() {
     }
 
     // event listener for scroll nav menu
-    $('#js-scroll-indicator a').on('click', function(e) {
+    $('#js-scroll-indicator a').on('click touchstart', function(e) {
       e.preventDefault();
 
       var href = e.target.getAttribute('href');
@@ -430,7 +430,7 @@ $(document).on('ready', function() {
     }
     buildImagesNav();
 
-    $('body').on('click', '.js-image-nav__link', function(e) {
+    $('body').on('click touchstart', '.js-image-nav__link', function(e) {
       e.preventDefault();
 
       getImages( e.target.getAttribute('data-img-link') - 1 );
@@ -451,7 +451,7 @@ $(document).on('ready', function() {
       return $lightbox;
     }
 
-    $('body').on('click', '.lightbox', function() {
+    $('body').on('click touchstart', '.lightbox', function() {
       $('.lightbox').remove();
     });
 
@@ -460,7 +460,7 @@ $(document).on('ready', function() {
         idString = '#photo-grid__item-' + imgId;
         (function() {
             var index = imgId;
-            $('body').on('click', idString, function() {
+            $('body').on('click touchstart', idString, function() {
               var $newLightBox = makeLightBox();
               $( $newLightBox ).append(lightboxImg[index]);
               $( $newLightBox ).appendTo( $('body') ).velocity({

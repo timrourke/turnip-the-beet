@@ -32,6 +32,7 @@
     "gulp-responsive": "^1.1.1",
     "gulp-sass": "^2.0.3",
     "gulp-sourcemaps": "^1.5.2",
+    "gulp-svg-sprite": "^1.2.5",
     "gulp-uglify": "^1.2.0",
     "imagemin-pngquant": "^4.1.0",
     "main-bower-files": "^2.9.0",

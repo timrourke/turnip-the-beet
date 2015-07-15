@@ -8,7 +8,7 @@
     kitId: 'dbu2qpr',
     scriptTimeout: 3000
   },
-  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config)}catch(e){}};s.parentNode.insertBefore(tk,s)
+  h=d.documentElement,t=setTimeout(function(){h.className=h.className.replace(/\bwf-loading\b/g,"")+" wf-inactive";},config.scriptTimeout),tk=d.createElement("script"),f=false,s=d.getElementsByTagName("script")[0],a;h.className+=" wf-loading";tk.src='//use.typekit.net/'+config.kitId+'.js';tk.async=true;tk.onload=tk.onreadystatechange=function(){a=this.readyState;if(f||a&&a!="complete"&&a!="loaded")return;f=true;clearTimeout(t);try{Typekit.load(config);}catch(e){}};s.parentNode.insertBefore(tk,s);
 })(document);
 
 var weatherAPI = {
@@ -17,13 +17,60 @@ var weatherAPI = {
   cityId: '5720755'
 };
 
+
+/*
+ *  Nav Menu Toggle
+ *
+ */
+
+$(document).on('ready', function() {
+  var menuIsOpen = false;
+
+  var $menuButton = $('#js-menu-toggle');
+
+  function openMenu() {
+    menuIsOpen = true;
+    $('.nav-drawer').velocity({translateX: '-100%'},{
+      easing: 'easeInQuart'
+    });
+  }
+
+  function closeMenu() {
+    menuIsOpen = false;
+    $('.nav-drawer').velocity({translateX: '0%'},{
+      easing: 'easeInQuart'
+    });
+  }
+
+  function toggleMenu(){
+    if (menuIsOpen === false){
+      openMenu();
+    } else {
+      closeMenu();
+    }
+  }
+
+  $(document).delegate( '#js-menu-toggle', 'click', function(){
+    toggleMenu();
+  });
+
+  $(document).delegate( '.nav-drawer input, .nav-drawer button, .nav-drawer a', 'focusin', function(e){
+    $(e.target).select();
+    openMenu();
+  });
+
+  $(document).on('closeMenuEvent', function(){
+    closeMenu();
+  });
+});
+  
+
 /*
  *  Weather Stuff
  *
  */
 
 function getDate(timestamp) {
-
     //Set timezone to Eugene OR
     var eugeneTime = timestamp + (3600000*-7);
 
@@ -49,67 +96,114 @@ function kelvinToFahrenheit(temp) {
   return 32 + ((temp - 273.15) * 1.8);
 }
 
-function overcastLevel(weather) {
-    var percentOvercast = weather.clouds.all;
-    var now = new Date().getTime();
+function buildWeatherData(weather) {
+  var percentOvercast = weather.clouds.all;
+  var now = new Date().getTime();
 
-    var sunrise = weather.sys.sunrise * 1000;
-    var sunset = weather.sys.sunset * 1000;
-    var daytime;
-    var cloudsWord = "";
+  var sunrise = weather.sys.sunrise * 1000;
+  var sunset = weather.sys.sunset * 1000;
+  var daytime;
+  var cloudsWord = "";
+  var weatherIcon = "";
 
-    if (now > sunrise && now < sunset) {
-      daytime = true;
+  console.log(percentOvercast);
+
+  var weatherIconOptions = {
+    day: {
+      overcast: 'weather--icon-overcast',
+      partlySunny: 'weather--icon-partly-sunny',
+      sunny: 'weather--icon-sunny',
+      rainy: 'weather--icon-rain',
+      snow: 'weather--icon-snow'
+    },
+    night: {
+      overcast: 'weather--icon-cloud',
+      clear:  'weather--icon-full-mooon',
+      rainy: 'weather--icon-rain',
+      snow: 'weather--icon-snow'
+    }
+  };
+
+  if (now > sunrise && now < sunset) {
+    daytime = true;
+  } else {
+    daytime = false;
+  }
+
+  if (daytime && percentOvercast !== undefined) {
+    if (percentOvercast === 0) {
+      var cloudsWord = "clear";
+      var weatherIcon = weatherIconOptions.day.sunny;
+    } else if (percentOvercast < 25) {
+      cloudsWord = "mostly sunny";
+      weatherIcon = weatherIconOptions.day.partlySunny;
+    } else if (percentOvercast >= 25 && percentOvercast < 50) {
+      cloudsWord = "partly cloudy";
+      weatherIcon = weatherIconOptions.day.partlySunny;
+    } else if (percentOvercast > 50 && percentOvercast <= 75) {
+      cloudsWord = "partly sunny";
+      weatherIcon = weatherIconOptions.day.overcast;
     } else {
-      daytime = false;
+      cloudsWord = "overcast";
+      weatherIcon = weatherIconOptions.day.overcast;
     }
+  }
 
-    if (daytime && percentOvercast) {
-      if (percentOvercast == 0) {
-        cloudsWord = "clear";
-      } else if (percentOvercast < 25) {
-        cloudsWord = "mostly sunny";
-      } else if (percentOvercast >= 25 && percentOvercast < 50) {
-        cloudsWord = "partly cloudy";
-      } else if (percentOvercast > 50 && percentOvercast <= 75) {
-        cloudsWord = "partly sunny";
-      } else {
-        cloudsWord = "overcast";
-      }
+  if (!daytime && percentOvercast !== undefined) {
+    if (percentOvercast === 0) {
+      cloudsWord = "clear";
+      weatherIcon = weatherIconOptions.night.clear;
+    } else if (percentOvercast < 25) {
+      cloudsWord = "mostly clear";
+      weatherIcon = weatherIconOptions.night.clear;
+    } else if (percentOvercast >= 25 && percentOvercast < 50) {
+      cloudsWord = "partly cloudy";
+      weatherIcon = weatherIconOptions.night.overcast;
+    } else if (percentOvercast > 50 && percentOvercast <= 75) {
+      cloudsWord = "mostly cloudy";
+      weatherIcon = weatherIconOptions.night.overcast;
+    } else {
+      cloudsWord = "overcast";
+      weatherIcon = weatherIconOptions.night.overcast;
     }
+  }
 
-    if (!daytime && percentOvercast) {
-      if (percentOvercast == 0) {
-        cloudsWord = "clear";
-      } else if (percentOvercast < 25) {
-        cloudsWord = "mostly clear";
-      } else if (percentOvercast >= 25 && percentOvercast < 50) {
-        cloudsWord = "partly cloudy";
-      } else if (percentOvercast > 50 && percentOvercast <= 75) {
-        cloudsWord = "mostly cloudy";
-      } else {
-        cloudsWord = "overcast";
-      }
-    }
+  function setWeatherDetails() {
+    var weatherDetails = {
+      clouds: cloudsWord,
+      daytime:  daytime,
+      string: 'It is currently ' + cloudsWord + ' and ' + Math.round(kelvinToFahrenheit(weather.main.temp)) + '&#176;F',
+      icon: createWeatherIcon(weatherIcon)
+    };
+    return weatherDetails;
+  }
 
-    console.log('now: ' + now);
-    console.log('UTC parsed: ' + getDate(now));
-    console.log('sunrise: ' + getDate(weather.sys.sunrise * 1000));
-    console.log('sunset: ' + getDate(weather.sys.sunset * 1000));
-
-    return cloudsWord;
+  return setWeatherDetails();
 }
 
 function getWeather() {
   var weather;
 
-  $.get( weatherAPI.url + weatherAPI.cityId + '&APPID=' + weatherAPI.key, function(data) {
-    weather = data;
-    console.dir(weather);
-    var weatherString = 'It is currently ' + overcastLevel(weather) + ' and ' + Math.round(kelvinToFahrenheit(weather.main.temp)) + '\B0F.';
-    console.log(weatherString);
-  });
+  var ajaxParams = {
+    url: weatherAPI.url + weatherAPI.cityId + '&APPID=' + weatherAPI.key,
+    type: 'GET',
+    dataType: 'json',
+    success: function(data) {
+      weather = data;
+      var weatherOutput = buildWeatherData(weather);
 
+      var $weatherWidget = $('<div id="js-weather-widget">Farm weather: ' + weatherOutput.icon + weatherOutput.string + '</div>');
+
+      $('.site-header').append($weatherWidget);
+    }
+  };
+
+  $.ajax(ajaxParams);
+}
+
+function createWeatherIcon(weatherIcon) {
+  var template = '<svg class="icon"><use xlink:href="#' + weatherIcon + '"></use></svg>';
+  return template;
 }
 
 $(document).on('ready', function() {
@@ -180,7 +274,7 @@ $(document).on('ready', function() {
           setScrollNavActive();
         }
       });
-    })
+    });
 
     function detectDirection() {
       newScrollTop = window.scrollY;
@@ -197,17 +291,17 @@ $(document).on('ready', function() {
 
       if (direction == 'down') {
 
-        for (var index in testTargetRanges) {
-          if (viewportBottom > testTargetRanges[index][0] + bufferDistance && viewportBottom < testTargetRanges[index][1] - bufferDistance) {
-            testScrollTargetIndex = index;
+        for (var i in testTargetRanges) {
+          if (viewportBottom > testTargetRanges[i][0] + bufferDistance && viewportBottom < testTargetRanges[i][1] - bufferDistance) {
+            testScrollTargetIndex = i;
           }
         }
 
       } else if (direction == 'up') {
 
-        for (var index in testTargetRanges) {
-          if (viewportTop < testTargetRanges[index][1] - bufferDistance && viewportTop > testTargetRanges[index][0] + bufferDistance) {
-            testScrollTargetIndex = index;
+        for (var j in testTargetRanges) {
+          if (viewportTop < testTargetRanges[j][1] - bufferDistance && viewportTop > testTargetRanges[j][0] + bufferDistance) {
+            testScrollTargetIndex = j;
           }
         }
 
@@ -237,7 +331,7 @@ $(document).on('ready', function() {
 
     $(window).bind('scroll', function() {
       scrollDirection = detectDirection();
-    })
+    });
 
     function setScroll() {
       $(window).on('scroll.navScroll', debounce(function(e) {

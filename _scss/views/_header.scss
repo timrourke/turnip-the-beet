@@ -14,8 +14,29 @@
   margin-top:-0.175em;
   height:auto;
   z-index:200;
+  @media all and (min-width: 600px) {
+    width:8em;
+  }
 }
 
 .site-navigation--main {
   float:right;
+}
+
+#js-weather-widget {
+  @include extend-animation(smoothFadeInUp, 1.35s, 1.75s, ease-in-out, 0, forwards);
+  position:absolute;
+  bottom:1em;
+  left:1em;
+  color:white;
+  font-family:$sans-serif;
+  font-weight:300;
+  @media all and (min-width:600px) {
+    bottom:2em;
+    left:2em; 
+  }
+  .icon {
+    margin-top:0.125em;
+    margin-right:0.25em;
+  }
 }

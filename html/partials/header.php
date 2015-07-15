@@ -31,39 +31,50 @@
         <link rel="stylesheet" href="css/style.css">
     </head>
     <body class="<?php echo $bodyClass; ?>">
-        <!--[if lt IE 8]>
-            <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
-        <div id="page" class="hfeed site">
-        	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
+      <div style="display:none !important;">
+        <?php include('./svg/defs/svg/sprite.defs.svg'); ?>
+      </div>
+      <!--[if lt IE 8]>
+          <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+      <![endif]-->
+      
+      <div id="js-nav-drawer" class="nav-drawer">
+        <nav id="main-navigation" class="site-navigation site-navigation--main" role="navigation">
+          <ul id="primary-menu" class="site-navigation__menu">
+            <li class="site-navigation__menu-item"><a href="about/" class="site-navigation__menu-link">About Us</a></li>
+            <li class="site-navigation__menu-item"><a href="field-notes/" class="site-navigation__menu-link">Field Notes</a></li>
+            <li class="site-navigation__menu-item"><a href="our-customers/" class="site-navigation__menu-link">Our Customers</a></li>
+            <li class="site-navigation__menu-item"><a href="our-food/" class="site-navigation__menu-link">Our Food</a></li>
+          </ul>
+        </nav><!-- #site-navigation -->  
+      </div>
 
-        	<header id="masthead" class="js-front-page-waypoint site-header" role="banner">
-        		<div class="site-branding">
-        			<h1 class="site-title">
-                <a href="/" rel="home">
-                  <span class="screen-reader-text">Turnip the Beet</span>
-                  <img src="images-build/logo/new-logo-prototype-480.png" sizes="20vw" srcset="images-build/logo/new-logo-prototype.png 1200w, images-build/logo/new-logo-prototype-1024.png 1024w, images-build/logo/new-logo-prototype-800.png 800w, images-build/logo/new-logo-prototype-640.png 640w, images-build/logo/new-logo-prototype-480.png 480w, images-build/logo/new-logo-prototype-320.png 320w" alt="Turnip the Beets Farm" class="site-logo">
-                </a>
-              </h1>
-        		</div><!-- .site-branding -->
+      <button id="js-menu-toggle" class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+        <div class="menu-toggle__top"></div>
+        <div class="menu-toggle__middle"></div>
+        <div class="menu-toggle__bottom"></div>           
+      </button>
 
-        		<nav id="main-navigation" class="site-navigation site-navigation--main" role="navigation">
-        			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">Menu</button>
-        			<ul id="primary-menu" class="site-navigation__menu">
-        			  <li class="site-navigation__menu-item"><a href="about/" class="site-navigation__menu-link">About Us</a></li>
-        			  <li class="site-navigation__menu-item"><a href="field-notes/" class="site-navigation__menu-link">Field Notes</a></li>
-        			  <li class="site-navigation__menu-item"><a href="our-customers/" class="site-navigation__menu-link">Our Customers</a></li>
-        			  <li class="site-navigation__menu-item"><a href="our-food/" class="site-navigation__menu-link">Our Food</a></li>
-        			</ul>
-        		</nav><!-- #site-navigation -->
+      <div id="page" class="hfeed site">
+      	<a class="skip-link screen-reader-text" href="#content">Skip to content</a>
 
-            <aside class="site-intro">
-              <p>We grow organic food with hard work, love, and a cattle dog in the lovely foothills of Lorane,&nbsp;Oregon.</p>
-              <a href="#food" class="site-intro__link">Find our Food <span class="icon-right-arrow">→</span></a>
-            </aside>
+      	<header id="masthead" class="js-front-page-waypoint site-header" role="banner">
+      		<div class="site-branding">
+      			<h1 class="site-title">
+              <a href="/" rel="home">
+                <span class="screen-reader-text">Turnip the Beet</span>
+                <img src="images-build/logo/new-logo-prototype-480.png" sizes="25vw" srcset="images-build/logo/new-logo-prototype.png 1200w, images-build/logo/new-logo-prototype-1024.png 1024w, images-build/logo/new-logo-prototype-800.png 800w, images-build/logo/new-logo-prototype-640.png 640w, images-build/logo/new-logo-prototype-480.png 480w, images-build/logo/new-logo-prototype-320.png 320w" alt="Turnip the Beets Farm" class="site-logo">
+              </a>
+            </h1>
+      		</div><!-- .site-branding -->
 
-            <div class="site-header__background"></div>
+          <aside class="site-intro">
+            <p>We grow organic food with hard work, love, and a cattle dog in the lovely foothills of Lorane,&nbsp;Oregon.</p>
+            <a href="#food" class="site-intro__link">Find our Food <span class="icon-right-arrow">→</span></a>
+          </aside>
 
-        	</header><!-- #masthead -->
+          <div class="site-header__background"></div>
 
-        	<div id="content" class="site-content">
+      	</header><!-- #masthead -->
+        
+      	<div id="content" class="site-content">

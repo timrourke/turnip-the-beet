@@ -16,6 +16,7 @@ var pngquant =        require('imagemin-pngquant');
 var newer =           require('gulp-newer');
 var changed =         require('gulp-changed');
 var plumber =         require('gulp-plumber');
+var svgSprite =       require('gulp-svg-sprite');
 
 // libsass
 gulp.task('sass', function () {
@@ -54,8 +55,8 @@ gulp.task('sass-ie', function () {
 // javascripts
 gulp.task('js', ['bower'], function() {
   return gulp.src(['./html/js/vendor/vendor.js', './html/js/global.js'])
-    .pipe(concat('./html/js-build/global.build.js'))
     .pipe(jshint())
+    .pipe(concat('./html/js-build/global.build.js'))
     .pipe(rename('global.min.js'))
     .pipe(uglify())
     .pipe(gulp.dest('./html/js-build/'))
@@ -74,7 +75,7 @@ gulp.task('bower', function() {
 gulp.task('images', function() {
   browserSync.notify('Responsive images starting.');
   return gulp.src('images-source/**/*.{jpg,jpeg,png,tiff,webp,gif}')
-    .pipe(newer('./html/images-build'))
+    .pipe(changed('./html/images-build'))
     .pipe(plumber())
     .pipe(responsive({
       '**/*.{jpg,png,tiff,webp,gif}': [{
@@ -155,14 +156,42 @@ gulp.task('images', function() {
     .pipe(gulp.dest('./html/images-build'));
 });
 
+svgSpriteConfig = {
+    shape: {
+        dimension: {         // Set maximum dimensions
+
+        },
+        spacing: {         // Add padding
+            padding: 0,
+            box: 'content'
+        },
+        dest: 'out/intermediate-svg'    // Keep the intermediate files
+    },
+    mode: {
+        view: false,
+        symbol: false,
+        defs: {
+            inline: true
+        }     // Activate the «symbol» mode
+    }
+};
+
+gulp.task('svg-icons', function() {
+    return gulp.src('./icons/**/*.svg')
+        .pipe(svgSprite(svgSpriteConfig))
+        .pipe(gulp.dest('./html/svg'))
+        .pipe(browserSync.stream());
+});
+
 // watch tasks and serve via browserSync
-gulp.task('serve', ['sass', 'sass-ie', 'js', 'images'], function() {
+gulp.task('serve', ['sass', 'sass-ie', 'js', 'images', 'svg-icons'], function() {
   browserSync.init({
     proxy: 'turnipthebeetfarm.tim'
   });
 
   gulp.watch('images-source/**/*.{jpg,jpeg,png,tiff,webp,gif}', ['images']);
-  gulp.watch('./html/js/**/*.js', ['js'])
+  gulp.watch('./html/js/**/*.js', ['js']);
+  gulp.watch('./icons/**/*.svg');
   gulp.watch('./_scss/**', ['sass', 'sass-ie']);
   gulp.watch("./html/**/*.php").on("change", browserSync.reload);
 });

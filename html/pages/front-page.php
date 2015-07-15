@@ -5,8 +5,6 @@
 
 			<section id="food" class="js-front-page-waypoint food-promo col-group">
 
-
-
 				<article class="food-article col-7-12 col-last">
 					<h1 class="section-title">Join Our CSA!</h1>
 					<p>Do you want organic, locally grown produce delivered weekly? Our 2015 farm shares are now available! Enjoy fresh, pre-washed veggies conveniently delivered to <a href="http://www.noisettepk.com/" rel="external">Noisette Pastry Kitchen</a> in downtown Eugene.</p>

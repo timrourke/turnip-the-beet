@@ -302,6 +302,9 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
  * FOOD
  *
  */
+.home .food-promo {
+  min-height:0;
+}
 
 .food-grid {
   position:relative;
@@ -312,10 +315,12 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
   }
   .col-group {
     position:relative;
-    height:20em;
+    height:0;
     width:100%;
+    padding-bottom:33.33333%;
     @media all and (min-width:600px) {
       height:66.66666%;
+      padding-bottom:0;
     }
     @media all and (min-width:800px) {
       height:38.2%;
@@ -328,8 +333,9 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
 }
 
 .food-grid__top {
-  height:20em;
   width:33.33333%;
+  height:0;
+  padding-bottom:33.33333%;
   float:left;
   position:relative;
   background-image:$about-grid-linear-gradient, url('/images-build/about/2-Fall-CSA-Lela-lookin-pretty-original.jpg');
@@ -338,6 +344,7 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
   background-position:center 37%;
   border-right:0.25em solid white;
   @media all and (min-width:600px) {
+    height:100%;
     border-right:0.5em solid white;
     border-bottom:0;
     float:none;
@@ -354,8 +361,9 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
   position:relative;
   background-size:cover;
   background-repeat: no-repeat;
-  width:33.3333%;
-  height:20em;
+  width:33.33333%;
+  height:0;
+  padding-bottom:33.33333%;
   float:left;
   border:0.5em solid white;
   @media all and (min-width:600px) {
@@ -405,9 +413,10 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
   clear:both;
   width:100%;
   float:left;
-  padding:1em 2em 1em 1em;
+  padding:1em;
   background-color:white;
   @media all and (min-width:600px) {
+    padding:1em 2em 1em 1em;
     clear:none;
     float:right;
     height:100%;

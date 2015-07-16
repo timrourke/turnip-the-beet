@@ -117,8 +117,6 @@ function buildWeatherData(weather) {
   var cloudsWord = "";
   var weatherIcon = "";
 
-  console.log(percentOvercast);
-
   var weatherIconOptions = {
     day: {
       overcast: 'weather--icon-overcast',

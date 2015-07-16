@@ -32,7 +32,7 @@
     </head>
     <body class="<?php echo $bodyClass; ?>">
       <div style="display:none !important;">
-        <?php include(__DIR__ . '/svg/defs/svg/sprite.defs.svg'); ?>
+        <?php include(__DIR__ . '/../svg/defs/svg/sprite.defs.svg'); ?>
       </div>
       <!--[if lt IE 8]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>

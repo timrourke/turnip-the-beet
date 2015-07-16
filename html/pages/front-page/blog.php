@@ -24,6 +24,9 @@
     ?>
     <div class="col-1-3 <?php echo $post_class; ?>">
       <article class="blog__excerpt">
+        <figure class="blog-post__featuredImage">
+          <img src="../images-build/blog/<?php echo $post->featuredImage; ?>-original.jpg" alt="<?php echo $post->title; ?>">
+        </figure>
         <header class="blog-post__meta">
           <h3 class="post-title"><?php echo $post->title; ?></h3>
           <div class="meta-row">

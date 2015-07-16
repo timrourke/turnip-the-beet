@@ -83,6 +83,20 @@
                 <span class="post-weather"><?php echo $post->weather; ?></span>
               </div>
             </div>
+            <style>
+              .site-header__background {
+                position:absolute;
+                top:0;
+                left:0;
+                width:100%;
+                height:100%;
+                z-index:-1;
+                background-position:center center;
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-image:linear-gradient(to bottom, rgba(10,50,90,0.65), rgba(8,80,70,0.4)), url('../images-build/blog/<?php echo $post->featuredImage; ?>-original.jpg');
+              }
+            </style>
           <?php endif; ?>
 
           <div class="site-header__background"></div>

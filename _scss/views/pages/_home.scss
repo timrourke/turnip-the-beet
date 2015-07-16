@@ -225,8 +225,6 @@ $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
 }
 
 .home .site-footer {
-  width:100%;
-  padding:2em;
   @media all and (min-width:600px) {
     position: absolute;
     top:600%;
@@ -235,6 +233,11 @@ $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
   @media all and (min-width:950px) {
     top:500%;
   }
+}
+
+.site-footer {
+  width:100%;
+  padding:2em;
 }
 
 

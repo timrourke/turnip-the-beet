@@ -7,7 +7,7 @@
 		    <?php if ($blog_posts) : ?>
 		    <?php  
 
-		      for ($count = 0; $count < count($blog_posts) - 1; $count++) {
+		      for ($count = 0; $count < count($blog_posts); $count++) {
 
 		        $post = $blog_posts[$count];
 

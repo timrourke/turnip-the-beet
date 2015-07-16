@@ -28,7 +28,7 @@
           <img src="../images-build/blog/<?php echo $post->featuredImage; ?>-original.jpg" alt="<?php echo $post->title; ?>">
         </figure>
         <header class="blog-post__meta">
-          <h3 class="post-title"><?php echo $post->title; ?></h3>
+          <a href="/blog/?post=<?php echo $count + 1; ?>"><h3 class="post-title"><?php echo $post->title; ?></h3></a>
           <div class="meta-row">
             <span class="post-date"><?php echo date("F j, Y", strtotime($post->date)); ?></span>
             <span class="sep">&nbsp;~&nbsp;</span>

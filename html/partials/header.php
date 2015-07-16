@@ -42,7 +42,7 @@
         <nav id="main-navigation" class="site-navigation site-navigation--main" role="navigation">
           <ul id="primary-menu" class="site-navigation__menu">
             <li class="site-navigation__menu-item"><a href="about/" class="site-navigation__menu-link">About Us</a></li>
-            <li class="site-navigation__menu-item"><a href="field-notes/" class="site-navigation__menu-link">Field Notes</a></li>
+            <li class="site-navigation__menu-item"><a href="/blog/" class="site-navigation__menu-link">Field Notes</a></li>
             <li class="site-navigation__menu-item"><a href="our-customers/" class="site-navigation__menu-link">Our Customers</a></li>
             <li class="site-navigation__menu-item"><a href="our-food/" class="site-navigation__menu-link">Our Food</a></li>
           </ul>
@@ -73,7 +73,7 @@
             <p>We grow organic food with hard work, love, and a cattle dog in the lovely foothills of Lorane,&nbsp;Oregon.</p>
             <a href="#food" class="site-intro__link">Find our Food <span class="icon-arrow">→</span></a>
           </aside>
-          <?php elseif ( $bodyClass == "blog" ) : ?>
+          <?php elseif ( $bodyClass == "blog blog-single-post" && $postIndex !== false ) : ?>
             <div class="blog-post__meta">
               <h3 class="section-title">Field Notes</h3>
               <h1 class="post-title"><?php echo $post->title; ?></h1>
@@ -97,6 +97,8 @@
                 background-image:linear-gradient(to bottom, rgba(10,50,90,0.65), rgba(8,80,70,0.4)), url('../images-build/blog/<?php echo $post->featuredImage; ?>-original.jpg');
               }
             </style>
+          <?php elseif ( $bodyClass == "blog" && $postIndex == false ) :?>
+            <h1 class="page-title">Field Notes</h1>
           <?php endif; ?>
 
           <div class="site-header__background"></div>

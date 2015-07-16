@@ -1,6 +1,6 @@
 <?php
 
-  $blog_posts = file_get_contents('./pages/front-page/blog-posts.json');
+  $blog_posts = file_get_contents('./data/blog-posts.json');
 
   $blog_posts = json_decode($blog_posts);
 
@@ -11,13 +11,12 @@
 
     <?php if ($blog_posts) : ?>
     <?php  
-      $count = 0;
 
-      foreach ($blog_posts as &$post) {
+      for ($count = 0; $count < 3; $count++) {
 
-        $count++;
+        $post = $blog_posts[$count];
 
-        if ($count == count($blog_posts)) {
+        if ($count == 2) {
           $post_class = "col-last";
         } else {
           $post_class = "";
@@ -28,7 +27,7 @@
         <header class="blog-post__meta">
           <h3 class="post-title"><?php echo $post->title; ?></h3>
           <div class="meta-row">
-            <span class="post-date"><?php echo $post->date; ?></span>
+            <span class="post-date"><?php echo date("F j, Y", strtotime($post->date)); ?></span>
             <span class="sep">&nbsp;~&nbsp;</span>
             <span class="post-weather"><?php echo $post->weather; ?></span>
           </div>
@@ -37,7 +36,7 @@
           <?php echo $post->excerpt; ?>
         </div>
         <footer class="blog-post__footer">
-          <a class="permalink" href="#">Read more <span class="icon-right-arrow">→</span></a>
+          <a class="permalink" href="/blog/?post=<?php echo $count + 1; ?>">Read more <span class="icon-arrow">→</span></a>
         </footer>
       </article>
     </div>

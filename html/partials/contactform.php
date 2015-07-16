@@ -1,10 +1,10 @@
 <?php
 
 
-require_once 'config/nonce_secret.php';
+require_once __DIR__ . '/../config/nonce_secret.php';
 
 //https://github.com/timostamm/NonceUtil-PHP
-require_once 'includes/nonce-util.php';
+require_once __DIR__ . '/../includes/nonce-util.php';
 
 $nonce = NonceUtil::generate(NONCE_SECRET, 320);
 

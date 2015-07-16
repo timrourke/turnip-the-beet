@@ -1,12 +1,12 @@
 <?php
 
-/*
- *  Variables
- *
- *  Page: Home
- *
- */
+	/*
+	 *  Variables
+	 *
+	 *  Page: Home
+	 *
+	 */
 
-$bodyClass = 'home';
+	$bodyClass = 'home';
 
 ?>

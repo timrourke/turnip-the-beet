@@ -1,7 +1,7 @@
 $home-main-background-top-overlay:rgba(10,50,90,0.35);
 $home-main-background-bottom-overlay:rgba(8,80,70,0.46);
 
-.home {
+body {
   @media all and (min-width:600px) {
     height:600%;
   }
@@ -36,14 +36,8 @@ $home-site-header-top-overlay:rgba(50,90,120,0.25);
 $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
 
 .home .site-header {
-  position:relative;
   top:0;
   left:0;
-  width:100%;
-  padding:1em;
-  overflow:hidden;
-  z-index:10;
-  min-height:30em;
   height:100%;
   @media all and (min-width: 600px) {
     position:absolute;  
@@ -435,19 +429,25 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
     width:58.33333%;
   }
   @media all and (min-width:700px) {
+    padding:2em 2.5em 2em 2em;
+  }
+  @media all and (min-width:800px) {
     padding:3em 4em 3em 3em;
   }
 }
 
 .home .food__farmers-market-schedule {
   position: relative;
-  margin-top:2em;
+  margin-top:0;
   margin-left: auto;
   margin-right: auto;
   max-width:25em;
   border:1px solid #666;
   padding:1em 1em 0 1em;
   text-align:center;
+  @media all and (min-width:600px) {
+    margin-top:1em;
+  }
   .fancyCorner-top-left {
     position:absolute;
     top:-1px;

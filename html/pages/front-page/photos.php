@@ -3,6 +3,8 @@
   $images_list = array();
   $unique_filenames = array();
 
+  echo __DIR__;
+
   foreach(glob('./images-build/photo-stream/*.*') as $filename){
      $images_list[] = $filename;
   }

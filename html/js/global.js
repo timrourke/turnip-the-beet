@@ -205,7 +205,7 @@ function getWeather() {
 
       var $weatherWidget = $('<div id="js-weather-widget">Farm weather: ' + weatherOutput.icon + weatherOutput.string + '</div>');
 
-      $('.site-header').append($weatherWidget);
+      $('.home .site-header').append($weatherWidget);
     }
   };
 

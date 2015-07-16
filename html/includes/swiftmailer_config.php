@@ -1,6 +1,6 @@
 <?php
 
-require_once 'swiftmailer/lib/swift_required.php';
+require_once '../includes/swiftmailer/lib/swift_required.php';
 
 // Create the mail transport config
 $transport = Swift_MailTransport::newInstance();

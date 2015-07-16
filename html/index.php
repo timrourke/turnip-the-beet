@@ -1,6 +1,6 @@
-<?php include('partials/vars/home.php'); ?>
-<?php include('partials/header.php'); ?>
+<?php include(__DIR__ . '/partials/vars/home.php'); ?>
+<?php include(__DIR__ . '/partials/header.php'); ?>
 
-  <?php include('pages/front-page.php'); ?>
+  <?php include(__DIR__ . '/pages/front-page.php'); ?>
 
-<?php include('partials/footer.php'); ?>
+<?php include(__DIR__ . '/partials/footer.php'); ?>

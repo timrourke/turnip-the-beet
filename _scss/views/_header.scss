@@ -1,5 +1,11 @@
 .site-header {
   @extend .clearfix;
+  position:relative;
+  padding:1em;
+  z-index:10;
+  min-height:30em;
+  width:100%;
+  overflow:hidden;
 }
 
 .site-title {
@@ -15,7 +21,13 @@
   height:auto;
   z-index:200;
   @media all and (min-width: 600px) {
-    width:8em;
+    width:6em;
+    .home & {
+      width:8em;
+    }
+  }
+  @media all and (min-width: 1000px) {
+    width:7em;
   }
 }
 

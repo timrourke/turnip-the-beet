@@ -18,6 +18,7 @@
   "dependencies": {
     "picturefill": "~2.3.1",
     "jquery": "~2.1.4",
-    "velocity": "~1.2.2"
+    "velocity": "~1.2.2",
+    "fastclick": "~1.0.6"
   }
 }

@@ -3,7 +3,7 @@
   <div class="col-1-3 about-grid__two">
     <div class="inner-content-wrap">
       <h1 class="section-title">About Us</h1>
-      <p>Our work brings together a reverence for the land with a passion for good food.</p>
+      <p>Our work brings together a reverence for the land with a passion for good&nbsp;food.</p>
     </div>
   </div>
   <div class="col-1-3 col-last about-grid__three">

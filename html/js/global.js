@@ -1,4 +1,15 @@
 /*
+ * Initiate FastClick 
+ *
+ * (Speeds reponse to touch events)
+ *
+ */
+
+$(function() {
+    FastClick.attach(document.body);
+});
+
+/*
  *  Typekit loader
  *
  */
@@ -50,14 +61,14 @@ $(document).on('ready', function() {
     }
   }
 
-  $(document).delegate( '#js-menu-toggle', 'click touchstart', function(){
+  $(document).delegate( '#js-menu-toggle', 'click', function(){
     toggleMenu();
   });
 
-  $(document).delegate( '.nav-drawer input, .nav-drawer button, .nav-drawer a', 'focusin', function(e){
-    $(e.target).select();
-    openMenu();
-  });
+  // $(document).delegate( '.nav-drawer input, .nav-drawer button, .nav-drawer a', 'focusin', function(e){
+  //   $(e.target).select();
+  //   openMenu();
+  // });
 
   $(document).on('closeMenuEvent', function(){
     closeMenu();
@@ -264,7 +275,7 @@ $(document).on('ready', function() {
     }
 
     // event listener for scroll nav menu
-    $('#js-scroll-indicator a').on('click touchstart', function(e) {
+    $('#js-scroll-indicator a').on('click', function(e) {
       e.preventDefault();
 
       var href = e.target.getAttribute('href');
@@ -426,12 +437,16 @@ $(document).on('ready', function() {
         $('#js-image-nav__ul').append( $($imageNavItem) );
       }
 
-
+      $('.js-image-nav__link').eq(0).addClass('active');
     }
     buildImagesNav();
 
-    $('body').on('click touchstart', '.js-image-nav__link', function(e) {
+    $('body').on('click', '.js-image-nav__link', function(e) {
       e.preventDefault();
+
+      $('.js-image-nav__link').removeClass('active');
+
+      $(this).addClass('active');
 
       getImages( e.target.getAttribute('data-img-link') - 1 );
     });
@@ -451,7 +466,7 @@ $(document).on('ready', function() {
       return $lightbox;
     }
 
-    $('body').on('click touchstart', '.lightbox', function() {
+    $('body').on('click', '.lightbox', function() {
       $('.lightbox').remove();
     });
 
@@ -460,7 +475,7 @@ $(document).on('ready', function() {
         idString = '#photo-grid__item-' + imgId;
         (function() {
             var index = imgId;
-            $('body').on('click touchstart', idString, function() {
+            $('body').on('click', idString, function() {
               var $newLightBox = makeLightBox();
               $( $newLightBox ).append(lightboxImg[index]);
               $( $newLightBox ).appendTo( $('body') ).velocity({

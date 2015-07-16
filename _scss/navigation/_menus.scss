@@ -34,8 +34,8 @@
   top:1em;
   right:1em;
   font-size:100%;
-  height:u(2.35rem);
-  width:u(2.5rem);
+  height:u(3.35rem);
+  width:u(3.5rem);
   padding:0;
   margin:0.5em 0.5em 0 0;
   display:block;
@@ -43,6 +43,8 @@
   background:none;
   outline:none;
   border:none;
+  box-shadow:none;
+  overflow:visible;
   &:hover {
     cursor:pointer;
   }
@@ -52,7 +54,8 @@
     position:absolute;
     height:12%;
     width:100%;
-    background-color:rgba(255,255,255,0.75);
+    background-color:rgba(255,255,255,0.7);
+    box-shadow:0 0 3px rgba(0,0,0,0.5);
   }
   .menu-toggle__top {
     top:0;

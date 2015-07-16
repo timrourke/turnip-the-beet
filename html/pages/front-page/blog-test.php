@@ -1,29 +1,22 @@
 <?php
 
-  $blog_posts = file_get_contents('./pages/front-page/blog-posts.json');
+	$blog_posts = file_get_contents('blog-posts.json');
 
-  $blog_posts = json_decode($blog_posts);
+	$blog_posts = json_decode($blog_posts);
+
+	//var_dump($blog_posts);
 
 ?>
+
 <section id="field-notes" class="js-front-page-waypoint field-notes-promo">
   <h1 class="section-title">Field Notes</h1>
   <div class="col-group">
 
-    <?php if ($blog_posts) : ?>
-    <?php  
-      $count = 0;
-
-      foreach ($blog_posts as &$post) {
-
-        $count++;
-
-        if ($count == count($blog_posts)) {
-          $post_class = "col-last";
-        } else {
-          $post_class = "";
-        }
-    ?>
-    <div class="col-1-3 <?php echo $post_class; ?>">
+	<?php if ($blog_posts) : ?>
+	<?php  
+		foreach ($blog_posts as &$post) {
+	?>
+    <div class="col-1-3">
       <article class="blog__excerpt">
         <header class="blog-post__meta">
           <h3 class="post-title"><?php echo $post->title; ?></h3>
@@ -42,10 +35,9 @@
       </article>
     </div>
     <?php
-      }
+    	}
     ?>
-    <?php endif; ?>
+	<?php endif; ?>
 
   </div>
-
 </section>

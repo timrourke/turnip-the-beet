@@ -19,7 +19,7 @@ a {
 		color: $color__link-hover;
 	}
 	&:focus {
-		outline:2px solid rgba(0,0,0,0.25);
+		outline:2px solid transparentize($active-input-color, 0.95);
 	}
 	&:hover,
 	&:active {
@@ -28,10 +28,10 @@ a {
 }
 
 *:focus {
-	outline:2px solid rgba(0,0,0,0.25);
-	background-color:rgba(0,0,0,0.25);
+	outline:2px solid transparentize($active-input-color, 0.95);
+	background-color:transparentize($active-input-color, 0.95);
 	color:white !important;
 	* {
-		background-color:rgba(0,0,0,0.25);
+		background-color:transparentize($active-input-color, 0.95);
 	}
 }

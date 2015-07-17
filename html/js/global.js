@@ -44,6 +44,7 @@ $(document).on('ready', function() {
     $('.nav-drawer').velocity({translateX: '-100%'},{
       easing: 'easeInQuart'
     });
+    $menuButton.addClass('js-nav-is-open');
   }
 
   function closeMenu() {
@@ -51,6 +52,7 @@ $(document).on('ready', function() {
     $('.nav-drawer').velocity({translateX: '0%'},{
       easing: 'easeInQuart'
     });
+    $menuButton.removeClass('js-nav-is-open');
   }
 
   function toggleMenu(){
@@ -65,10 +67,14 @@ $(document).on('ready', function() {
     toggleMenu();
   });
 
-  // $(document).delegate( '.nav-drawer input, .nav-drawer button, .nav-drawer a', 'focusin', function(e){
-  //   $(e.target).select();
-  //   openMenu();
-  // });
+  $(document).on('scroll.menuButtonEvents', function() {
+    if (window.scrollY > 200) {
+      $menuButton.css({
+        "position":"fixed"
+      });
+      $(document).unbind('.menuButtonEvents');
+    }
+  });
 
   $(document).on('closeMenuEvent', function(){
     closeMenu();

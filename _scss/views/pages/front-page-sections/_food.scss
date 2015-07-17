@@ -1,0 +1,210 @@
+/*
+ * Front page layout details
+ *
+ * FOOD
+ *
+ */
+.home .food-promo {
+  min-height:0;
+  overflow: hidden;
+}
+
+.food-grid {
+  position:relative;
+  height:100%;
+  width:100%;
+  @media all and (min-width:600px) {
+    width:41.66667%;
+  }
+  @media all and (min-width:900px) {
+  	width:48.5%
+  }
+  .col-group {
+    position:relative;
+    height:0;
+    width:100%;
+    padding-bottom:33.33333%;
+    @media all and (min-width:600px) {
+      height:66.66666%;
+      padding-bottom:0;
+    }
+    @media all and (min-width:800px) {
+      height:38.2%;
+    }
+  }
+}
+
+.food-grid__item {
+  border:0.5em solid white;
+}
+
+.food-grid__top {
+  width:33.33333%;
+  height:0;
+  padding-bottom:33.33333%;
+  float:left;
+  position:relative;
+  background-image:$about-grid-linear-gradient, url('/images-build/about/2-Fall-CSA-Lela-lookin-pretty-original.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position:center 37%;
+  border-right:0.25em solid white;
+  @media all and (min-width:600px) {
+    height:100%;
+    border-right:0.5em solid white;
+    border-bottom:0;
+    float:none;
+    height:33.33333%;
+    width:100%;
+  }
+  @media all and (min-width:800px) {
+    height:61.8%;
+  }
+}
+
+.food-grid__left,
+.food-grid__right {
+  position:relative;
+  background-size:cover;
+  background-repeat: no-repeat;
+  width:33.33333%;
+  height:0;
+  padding-bottom:33.33333%;
+  float:left;
+  border:0.5em solid white;
+  @media all and (min-width:600px) {
+    float:none;
+    clear:both;
+    height:50%;
+    width:100%;
+    border-top:0.25em solid white;
+  }
+  @media all and (min-width:800px) {
+    float:left;
+    clear:none;
+    height:100%;
+    width:50%;
+  }
+}
+
+.food-grid__left {
+  background-image:$about-grid-linear-gradient, url('/images-build/food/1stfalcsa-original.jpg');
+  border-left:0.25em solid white;
+  border-right:0.25em solid white;
+  @media all and (min-width:600px) {
+    border-top:0.5em solid white;
+    border-left:0.5em solid white;
+    border-right:0.5em solid white;
+  }
+  @media all and (min-width:800px) {
+    border-right:0.25em solid white;
+  }
+}
+
+.food-grid__right {
+  background-image:$about-grid-linear-gradient, url('/images-build/food/spud-harvest-original.jpg');
+  border-left:0.25em solid white;
+  @media all and (min-width:600px) {
+    border-left:0.5em solid white;
+    border-top:0;
+  }
+  @media all and (min-width:800px) {
+    border-top:0.5em solid white;
+    border-left:0.25em solid white;
+  }
+}
+
+.home .food-article {
+  position:relative;
+  clear:both;
+  width:100%;
+  float:left;
+  padding:1em;
+  background-color:white;
+  @media all and (min-width:600px) {
+    padding:1em 2em 1em 1em;
+    clear:none;
+    float:right;
+    height:100%;
+    width:58.33333%;
+  }
+  @media all and (min-width:700px) {
+    padding:2em 2em 2em 2em;
+  }
+  @media all and (min-width:900px) {
+  	width:48.5%;
+    padding:3em 3em 3em 3em;
+  }
+  @media all and (min-width:1100px) {
+    padding-top:2em;
+  }
+}
+
+.home .food__farmers-market-schedule {
+  position: relative;
+  margin-top:0;
+  margin-left: auto;
+  margin-right: auto;
+  max-width:25em;
+  border:1px solid #666;
+  padding:1em 1em 0 1em;
+  text-align:center;
+  @media all and (min-width:600px) {
+    margin-top:-0.5em;
+  }
+  @media all and (min-width:800px) {
+    margin-top:1em;
+  }
+  .fancyCorner-top-left {
+    position:absolute;
+    top:-1px;
+    left:-1px;
+    width:1em;
+    height:1em;
+    border-top:5px solid white;
+    border-left:5px solid white;
+    border-bottom:1px solid #666;
+    border-right:1px solid #666;
+    background-color:lighten($neutral-input-color, 25%);
+  }
+  .fancyCorner-top-right {
+    position:absolute;
+    top:-1px;
+    right:-1px;
+    width:1em;
+    height:1em;
+    border-top:5px solid white;
+    border-left:1px solid #666;
+    border-bottom:1px solid #666;
+    border-right:5px solid white;
+    background-color:lighten($neutral-input-color, 25%);
+  }
+  .fancyCorner-bottom-left {
+    position:absolute;
+    bottom:-1px;
+    left:-1px;
+    width:1em;
+    height:1em;
+    border-top:1px solid #666;
+    border-left:5px solid white;
+    border-bottom:5px solid white;
+    border-right:1px solid #666;
+    background-color:lighten($neutral-input-color, 25%);
+  }
+  .fancyCorner-bottom-right {
+    position:absolute;
+    bottom:-1px;
+    right:-1px;
+    width:1em;
+    height:1em;
+    border-top:1px solid #666;
+    border-left:1px solid #666;
+    border-bottom:5px solid white;
+    border-right:5px solid white;
+    background-color:lighten($neutral-input-color, 25%);
+  }
+}
+
+.home .food__farmers-market-schedule .schedule-item--last {
+  margin-bottom:1em;
+}

@@ -1,0 +1,62 @@
+/*
+ * Front page layout details
+ *
+ * ABOUT
+ *
+ */
+
+.home .about-promo {
+  padding:0;
+  text-align: center;
+  color:white;
+  background: rgba(0,0,0,0.3);
+}
+
+.home .about-promo .section-title {
+  color:white;
+}
+
+.home .about-promo .col-1-3 {
+  position:relative;
+}
+
+.home .about-promo .inner-content-wrap {
+  position:absolute;
+  top:50%;
+  transform:translateY(-50%);
+  left:0;
+  width:100%;
+  padding:2em;
+}
+
+.home .about-promo p {
+  margin-bottom:0;
+}
+
+$about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-overlay, $home-site-header-bottom-overlay);
+
+.about-grid__one {
+  background-image:$about-grid-linear-gradient, url('/images-build/about/john-tractor-original.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.about-grid__three {
+  background-image:$about-grid-linear-gradient, url('/images-build/about/11143534_424251924401593_7162826770879627122_n-original.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+}
+
+.about-grid__five {
+  background-image:$about-grid-linear-gradient, url('/images-build/about/two-farmers-and-a-blue-heeler-1024.jpg');
+  background-size:cover;
+  background-repeat: no-repeat;
+  background-position: 20% center;
+}
+
+.about-grid__one,
+.about-grid__three,
+.about-grid__five {
+  box-shadow:0 0 5px rgba(0,0,0,0.125);
+  border:0.5em solid white;
+}

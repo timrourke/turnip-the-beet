@@ -9,6 +9,13 @@
   height:1em;
   vertical-align: top;
   fill:white;
+  circle {
+  	fill: white;
+  }
+  path {
+  	fill:white;
+  }
+  z-index:1000;
 }
 
 .icon.icon--big {

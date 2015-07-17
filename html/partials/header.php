@@ -41,10 +41,11 @@
       <div id="js-nav-drawer" class="nav-drawer">
         <nav id="main-navigation" class="site-navigation site-navigation--main" role="navigation">
           <ul id="primary-menu" class="site-navigation__menu">
-            <li class="site-navigation__menu-item"><a href="about/" class="site-navigation__menu-link">About Us</a></li>
+            <li class="site-navigation__menu-item"><a href="/" class="site-navigation__menu-link">Home</a></li>
+            <li class="site-navigation__menu-item"><a href="/about/" class="site-navigation__menu-link">About Us</a></li>
             <li class="site-navigation__menu-item"><a href="/blog/" class="site-navigation__menu-link">Field Notes</a></li>
-            <li class="site-navigation__menu-item"><a href="our-customers/" class="site-navigation__menu-link">Our Customers</a></li>
-            <li class="site-navigation__menu-item"><a href="our-food/" class="site-navigation__menu-link">Our Food</a></li>
+            <li class="site-navigation__menu-item"><a href="/our-customers/" class="site-navigation__menu-link">Our Customers</a></li>
+            <li class="site-navigation__menu-item"><a href="/our-food/" class="site-navigation__menu-link">Our Food</a></li>
           </ul>
         </nav><!-- #site-navigation -->  
       </div>

@@ -29,8 +29,6 @@ a {
 
 *:focus {
 	outline:2px solid transparentize($active-input-color, 0.95);
-	background-color:transparentize($active-input-color, 0.95);
-	color:white !important;
 	* {
 		background-color:transparentize($active-input-color, 0.95);
 	}

@@ -14,10 +14,10 @@
 					<div class="food__farmers-market-schedule">
 						<h5>Schedule:</h5>
 						<p>
-							<span>~February&mdash;April~</span><br>
+							<span class="schedule-item">~February&mdash;April~</span><br>
 							<span>Saturdays from <span class="time">10AM</span> - <span class="time">2PM</span></span>
 						</p>
-						<p>
+						<p class="schedule-item schedule-item--last">
 							<span>~April&mdash;November~</span><br>
 							<span>Saturdays from <span class="time">9AM</span> - <span class="time">3PM</span></span>
 						</p>

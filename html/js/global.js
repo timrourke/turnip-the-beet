@@ -127,7 +127,7 @@ function buildWeatherData(weather) {
     },
     night: {
       overcast: 'weather--icon-cloud',
-      clear:  'weather--icon-full-mooon',
+      clear:  'weather--icon-full-moon',
       rainy: 'weather--icon-rain',
       snow: 'weather--icon-snow'
     }

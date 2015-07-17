@@ -19,6 +19,7 @@
 	text-align: left;
 	width:inherit;
 	font-size:inherit;
+	min-height:3em;
 }
 
 .blog .section-title {
@@ -171,10 +172,13 @@ li.post-navigation__nextPost {
 	position:relative;
 	width:100%;
 	@media all and (min-width:800px) {
-		height:33em;	
+		height:24em;	
+	}
+	@media all and (min-width:900px) {
+		height:33em;
 	}
 	@media all and (min-width:1000px) {
-		height:31em;
+		height:33em;
 	}
 }
 
@@ -184,6 +188,7 @@ li.post-navigation__nextPost {
 
 .blog .blog-post__content {
 	font-size:0.9em;
+	clear:both;
 }
 
 .blog.blog-single-post,

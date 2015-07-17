@@ -5,7 +5,7 @@
   height:100%;
   min-height:100%;
   width:100%;
-  background-color:rgba(0,0,0,0.8);
+  background-color:rgba(0,0,0,0.9);
   z-index:1000;
 }
 
@@ -17,16 +17,39 @@
 
 #primary-menu {
   list-style-type: none;
+  padding-top:2em;
 }
 
 #primary-menu .site-navigation__menu-item {
-  padding:1em;
-  width:100%;
+  padding:0.75em 1em;
   text-align:center;
   text-transform: uppercase;
   font-family:$sans-serif;
-  font-size:150%;
-  font-weight: 300;
+  font-weight: 900;
+  background:transparent;
+  transition:background 0.3s ease-out;
+  width:100%;
+  font-size:125%;
+  @media all and (min-height:600px) {
+    padding:1em 2em;
+    font-size:150%;
+  }
+  &:hover {
+    transition:background 0.3s ease-out;
+    background: linear-gradient(to right, rgba(255,255,255,0.025), rgba(255,255,255,0.05), rgba(255,255,255,0.025));
+    a {
+      color:$active-input-color;
+    }
+  }
+}
+
+#primary-menu .site-navigation__menu-item a {
+  color:white;
+  transition:color 0.3s ease-out;
+  &:hover {
+    transition:color 0.3s ease-out;
+    color:$active-input-color;
+  }
 }
 
 .menu-toggle {

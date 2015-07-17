@@ -237,7 +237,10 @@ $home-site-header-bottom-overlay:rgba(230,120,30,0.18);
 
 .site-footer {
   width:100%;
-  padding:2em;
+  padding:1em;
+  @media all and (min-width:600px) {
+    padding:2em;  
+  }
 }
 
 
@@ -683,7 +686,7 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
   height:33.33333%;
   margin-right:0;
   margin-bottom:1em;
-  @media all and (min-width: 600px) and (max-width: 799px) {
+  @media all and (min-width: 600px) and (max-width: 899px) {
     position:relative;
     height:32.5%;
     margin-bottom:1.24999%;
@@ -692,7 +695,7 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
   //   height:30%;
   //   margin-bottom:3%;
   // }
-  @media all and (min-width: 800px) {
+  @media all and (min-width: 900px) {
     width:32.5%;
     margin-right:1.24999%;
     height:100%;
@@ -717,12 +720,12 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
       height:150%;
       width:auto;
     }
-  @media all and (min-width:800px) {
+  @media all and (min-width:900px) {
     float:none;
     width:115%;
     height:0;
     border-radius:0;
-    padding-bottom:75%;
+    padding-bottom:80%;
     margin-right:0;
     margin-left:-1em;
     margin-top:-1em;
@@ -733,11 +736,11 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
       display:block;
     }
   }
-  @media all and (min-width:900px) {
-    padding-bottom:70%;
+  @media all and (min-width:1000px) {
+    padding-bottom:85%;
   }
   @media all and (min-width:1200px) {
-    padding-bottom:60%;
+    padding-bottom:70%;
   }
 }
 

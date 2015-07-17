@@ -64,14 +64,14 @@
 .post-navigation {
 	@extend .clearfix;
 	position:relative;
-	min-height:8em;
+	min-height:12em;
 	width:100%;
 	background-color:#666;
 	border:0.25em solid white;
 	border-bottom:none;
 	overflow:hidden;
 	@media all and (min-width:600px) {
-		height:8em;
+		height:12em;
 		border-bottom:0.25em solid white;
 	}
 }
@@ -114,7 +114,7 @@
 	position: relative;
 	display:block;
 	width:100%;
-	height:8em;
+	height:12em;
 	padding:1em;
 	border-bottom:0.25em solid white;
 	overflow: hidden;

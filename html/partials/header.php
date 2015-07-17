@@ -29,12 +29,15 @@
         <meta name="msapplication-square310x310logo" content="../favicon/mstile-310x310.png" />
 
         <link rel="stylesheet" href="../css/style.css">
+        <!--[if lt IE 9]>
+        <link rel='stylesheet' id='turnip-the-beet-style-old-ie-css'  href='../css/style.css' type='text/css' media='all' />
+        <![endif]-->
     </head>
     <body class="<?php echo $bodyClass; ?>">
       <div style="display:none !important;">
         <?php include(__DIR__ . '/../svg/defs/svg/sprite.defs.svg'); ?>
       </div>
-      <!--[if lt IE 8]>
+      <!--[if lt IE 10]>
           <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
       <![endif]-->
       

@@ -14,7 +14,8 @@ The client is familiar with WordPress as a platform, so this site has been built
 
 ## Key features
 
-- Clean, modern responsive design with pleasing microinteractions
+- Full redesign of logo
+- Clean, modern responsive design with pleasing microinteractions and typography
 - AJAX contact form over SMTP transport
 - Authored in Sass, PHP, and jQuery
 
@@ -49,5 +50,6 @@ While this project has acheived the baseline goals assigned to the class, there 
 - Build out expected functionality for enrollment in the CSA program, including e-commerce features
 - Find an alternative weather API that will operate inexpensively over HTTPS/SSL
 - Improve images lightbox functionality to allow swipe gestures on mobile and better performance overall
+- Reduce performance/bandwidth consumption with better use of srcset
 
 # Thanks!

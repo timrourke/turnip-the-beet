@@ -2,6 +2,8 @@
 
 **General Assembly Web Development Immersive - Project 1**
 
+![Turnip the Beet - screenshot](/screenshot.jpg)
+
 *Turnip the Beet* is an organic farm located outside of Eugene, Oregon. They focus on growing heirloom and specialty vegetables and fruits, and operate a local CSA, providing excellent produce to customers in the Eugene metropolitan area.
 
 ## The site

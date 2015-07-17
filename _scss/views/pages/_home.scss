@@ -507,7 +507,7 @@ $about-grid-linear-gradient:linear-gradient(to bottom, $home-site-header-top-ove
 
 .home .photos-promo {
   position:relative;
-  margin-bottom:4em;
+  //margin-bottom:0em;
   border:0.25em solid #ddd;
   border-bottom:4em solid #ddd;
   @media all and (min-width:600px) {

@@ -30,8 +30,8 @@
             </div>
 
             <div class="google-map">
-              <h3>Come Say Hi</h3>
-              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d547260.8046433368!2d-123.29291815112926!3d43.87309000796561!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54c139b2fa901d49%3A0x33e4167a38df33d1!2s79128+Territorial+Hwy%2C+Lorane%2C+OR+97451!5e0!3m2!1sen!2sus!4v1437090633456" width="400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+              <h3>See the Farm</h3>
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d369259.73415708647!2d-123.00003292655113!3d43.693054851338964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54c139b2fa901d49%3A0x33e4167a38df33d1!2s79128+Territorial+Hwy%2C+Lorane%2C+OR+97451!5e0!3m2!1sen!2sus!4v1437105157898" width="1400" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
           </div>
 

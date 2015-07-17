@@ -67,13 +67,12 @@
 	position:relative;
 	min-height:12em;
 	width:100%;
-	background-color:#666;
-	border:0.25em solid white;
-	border-bottom:none;
+	background-color:#222;
+	border-top:1px solid #444;
+	border-bottom:1px solid #444;
 	overflow:hidden;
 	@media all and (min-width:600px) {
 		height:12em;
-		border-bottom:0.25em solid white;
 	}
 }
 
@@ -82,13 +81,13 @@
 	&:hover .post-navigation__background {
 		transform:scale(1.25);	
 	}
-	&:hover h5 {
-		transform:translateY(0);
+	&:hover h4 {
+		color:$active-input-color;
 	}
 }
 
 .post-navigation__background {
-	transition:transform 5s ease-out;
+	transition:transform 6s ease-in-out;
 }
 
 .post-navigation a,
@@ -96,13 +95,13 @@
 	position:relative;
 	z-index:100;
 	color:white;
+	font-family:$sans-serif;
 }
 
-.post-navigation h5 {
+.post-navigation h4 {
 	color:white;
 	margin-top:1em;
-	transform:translateY(50%) translateX(-10%) scale(0.8);
-	transition:transform 0.4s ease-out;
+	transition:color 0.7s ease-in-out;
 }
 
 .post-navigation ul {
@@ -117,7 +116,6 @@
 	width:100%;
 	height:12em;
 	padding:1em;
-	border-bottom:0.25em solid white;
 	overflow: hidden;
 	a {
 		color:white;
@@ -129,10 +127,6 @@
 
 li.post-navigation__prevPost {
 	float:left;
-	@media all and (min-width:600px) {
-		border-right:0.125em solid white;
-		border-bottom:0.25em solid white;	
-	}
 	@media all and (min-width:700px) {
 		width:33.33333%;
 	}
@@ -140,10 +134,6 @@ li.post-navigation__prevPost {
 
 li.post-navigation__nextPost {
 	float:right;
-	@media all and (min-width:600px) {
-		border-left:0.125em solid white;
-		border-bottom:0.25em solid white;	
-	}
 	@media all and (min-width:700px) {
 		width:33.33333%;
 	}

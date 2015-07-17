@@ -95,7 +95,7 @@
                 background-position:center center;
                 background-size: cover;
                 background-repeat: no-repeat;
-                background-image:linear-gradient(to bottom, rgba(10,50,90,0.65), rgba(8,80,70,0.4)), url('../images-build/blog/<?php echo $post->featuredImage; ?>-original.jpg');
+                background-image:linear-gradient(to bottom, rgba(5,30,60,0.7), rgba(5,30,60,0.25)), linear-gradient(to bottom, rgba(255,255,255,0.2), rgba(255, 255,255,0)), url('../images-build/blog/<?php echo $post->featuredImage; ?>-original.jpg');
               }
             </style>
           <?php elseif ( $bodyClass == "blog" && $postIndex == false ) :?>

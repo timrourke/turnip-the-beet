@@ -17,7 +17,7 @@
     		<?php if ( ($postIndex - 1) > 0 ) : ?>
     		<li class="post-navigation__prevPost">
     			<a href="/blog/?post=<?php echo $postIndex - 1; ?>"><span class="icon-arrow">←</span> Previous <br>
-    				<h5><?php echo $blog_posts[$postIndex - 2]->title; ?></h5>
+    				<h4><?php echo $blog_posts[$postIndex - 2]->title; ?></h4>
     			</a>
     			<div class="post-navigation__background post-navigation__background--prev"></div>
           <style>
@@ -31,7 +31,7 @@
               background-position:center center;
               background-size: cover;
               background-repeat: no-repeat;
-              background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('../images-build/blog/<?php echo $blog_posts[$postIndex - 2]->featuredImage; ?>-original.jpg');
+              background-image:linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('../images-build/blog/<?php echo $blog_posts[$postIndex - 2]->featuredImage; ?>-original.jpg');
             }
           </style>
     		</li>
@@ -39,7 +39,7 @@
     		<?php if ( $postIndex + 1 <= count($blog_posts) ) : ?>
     		<li class="post-navigation__nextPost">
     			<a href="/blog/?post=<?php echo $postIndex + 1; ?>">Next <span class="icon-arrow">→</span>
-    				<h5><?php echo $blog_posts[$postIndex]->title; ?></h5>
+    				<h4><?php echo $blog_posts[$postIndex]->title; ?></h4>
     			</a>
     			<div class="post-navigation__background post-navigation__background--next"></div>
           <style>
@@ -53,7 +53,7 @@
               background-position:center center;
               background-size: cover;
               background-repeat: no-repeat;
-              background-image:linear-gradient(to bottom, rgba(0,0,0,0.25), rgba(0,0,0,0.25)), url('../images-build/blog/<?php echo $blog_posts[$postIndex]->featuredImage; ?>-original.jpg');
+              background-image:linear-gradient(to bottom, rgba(0,0,0,0.35), rgba(0,0,0,0.35)), url('../images-build/blog/<?php echo $blog_posts[$postIndex]->featuredImage; ?>-original.jpg');
             }
           </style>
     		</li>

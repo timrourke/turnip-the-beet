@@ -40,7 +40,7 @@
       $image_width = getimagesize($srcset_item)[0];
 
       if ($image_width != $previous_width) {
-          $srcset_list[$i][] = $srcset_item . ' ' . $image_width;
+          $srcset_list[$i][] = '.' . $srcset_item . ' ' . $image_width;
       }
 
       $previous_width = $image_width;
